@@ -52,17 +52,6 @@ ______________________________________________________________________
 
 ______________________________________________________________________
 
-## Estrutura da Aula (90 min)
-
-| Bloco | Tempo | Conteúdo |
-|---|---|---|
-| Setup & Motivação | 15 min | Apresentação do curso, objetivos, carregamento e visualização do dataset |
-| Implementação Prática | 55 min | Divisão treino/teste, treino do k-NN, predição, avaliação, comparação de valores de k |
-| Interpretação & Discussão | 15 min | Análise da [matriz de confusão](../GLOSSARY.md#matriz-de-confusão-confusion-matrix), quais dígitos são mais difíceis e por quê |
-| Encerramento & Preview | 5 min | Conceitos-chave, tarefa, prévia da Aula 02 |
-
-______________________________________________________________________
-
 ## Conceitos-Chave
 
 - **[Classificação](../GLOSSARY.md#classificação-classification):** prever a qual categoria um exemplo pertence

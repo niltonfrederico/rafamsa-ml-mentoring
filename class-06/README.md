@@ -53,16 +53,6 @@ ______________________________________________________________________
 
 ______________________________________________________________________
 
-## Estrutura da Aula (90 min)
-
-| Bloco | Tempo | Conteúdo | |---|---|---| | Setup & Motivação | 15 min | Problema de fronteiras não-lineares, intuição
-de margem máxima | | Implementação Prática | 55 min | SVM linear, kernel RBF, kernel polinomial, Grid Search C × gamma,
-comparação com Random Forest | | Interpretação & Discussão | 15 min | Por que o RBF funciona melhor? Trade-off
-performance × custo computacional | | Encerramento & Preview | 5 min | Conceitos-chave, tarefa, prévia de Clustering
-(Aula 07) |
-
-______________________________________________________________________
-
 ## Conceitos-Chave
 
 - **Margem máxima:** o SVM maximiza a distância entre a fronteira de decisão e os exemplos mais próximos de cada classe

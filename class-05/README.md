@@ -47,16 +47,6 @@ ______________________________________________________________________
 
 ______________________________________________________________________
 
-## Estrutura da Aula (90 min)
-
-| Bloco | Tempo | Conteúdo | |---|---|---| | Setup & Motivação | 15 min | De binário para multi-classe, limitação de
-Árvore única, introdução ao ensemble | | Implementação Prática | 55 min | Treino do Random Forest, análise OOB,
-importância de features, cross-validation, comparação com Árvore simples | | Interpretação & Discussão | 15 min | Quais
-features identificam cada escritor? Onde o ensemble erra? Aplicações forenses | | Encerramento & Preview | 5 min |
-Conceitos-chave, tarefa, prévia de SVM (Aula 06) |
-
-______________________________________________________________________
-
 ## Conceitos-Chave
 
 - **Ensemble learning:** combinar modelos fracos para criar um modelo forte

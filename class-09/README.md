@@ -69,16 +69,6 @@ ______________________________________________________________________
 
 ______________________________________________________________________
 
-## Estrutura da Aula (90 min)
-
-| Bloco | Tempo | Conteúdo | |---|---|---| | Setup & Motivação | 15 min | "Por que nossa avaliação até agora pode ter
-sido otimista?" — armadilhas comuns, review do curso | | Implementação Prática | 55 min | Cross-validation comparativa
-(k-NN, DT, RF, SVM), learning curves, teste de McNemar, pipeline correto | | Interpretação & Discussão | 15 min | Qual
-modelo vence? Com que significância? O que as learning curves revelam sobre cada algoritmo? | | Encerramento & Preview |
-5 min | Síntese do curso, próximos passos em ML, recursos recomendados |
-
-______________________________________________________________________
-
 ## Conceitos-Chave
 
 - **Data leakage:** quando informação do conjunto de teste "vaza" para o treino — principal fonte de avaliação inflada

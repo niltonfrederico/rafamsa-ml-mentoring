@@ -39,15 +39,6 @@ Ao final do curso, o aluno será capaz de:
 - Avaliar a performance de modelos de forma rigorosa e evitar armadilhas comuns
 - Construir sistemas capazes de identificar pessoas a partir de padrões de escrita
 
-### Estrutura de cada Aula (90 min)
-
-| Bloco | Duração | Conteúdo |
-|---|---|---|
-| Setup & Motivação | 15 min | Revisão, apresentação do dataset, objetivos da aula |
-| Implementação Prática | 55 min | Codificação passo a passo |
-| Interpretação & Discussão | 15 min | Análise dos resultados, conexões com o mundo real |
-| Encerramento & Preview | 5 min | Conceitos-chave, tarefa, prévia da próxima aula |
-
 ______________________________________________________________________
 
 ## Configuração do Ambiente

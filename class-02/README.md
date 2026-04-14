@@ -46,17 +46,6 @@ ______________________________________________________________________
 
 ______________________________________________________________________
 
-## Estrutura da Aula (90 min)
-
-| Bloco | Tempo | Conteúdo |
-|---|---|---|
-| Setup & Motivação | 15 min | De dígitos para letras, apresentação das 16 features de escrita |
-| Implementação Prática | 55 min | Treino de árvores com diferentes profundidades, visualização, importância de features, comparação treino vs. teste |
-| Interpretação & Discussão | 15 min | Quais letras são mais confundidas? O que as features mais importantes revelam? |
-| Encerramento & Preview | 5 min | Conceitos-chave, tarefa, prévia de Regressão Linear (Aula 03) |
-
-______________________________________________________________________
-
 ## Conceitos-Chave
 
 - **[Interpretabilidade](../GLOSSARY.md#interpretabilidade-interpretability):** ao contrário do k-NN, a Árvore de Decisão explica *por que* classificou assim

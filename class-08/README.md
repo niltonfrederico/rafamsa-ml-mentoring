@@ -61,16 +61,6 @@ ______________________________________________________________________
 
 ______________________________________________________________________
 
-## Estrutura da Aula (90 min)
-
-| Bloco | Tempo | Conteúdo | |---|---|---| | Setup & Motivação | 15 min | "Por que visualizar dados de alta dimensão é
-impossível diretamente?" — motivação e carregamento | | Implementação Prática | 55 min | PCA: variância explicada, scree
-plot, projeção 2D; t-SNE: visualização e parâmetros; comparação | | Interpretação & Discussão | 15 min | O que os
-componentes principais revelam sobre a escrita? PCA vs. t-SNE: trade-offs | | Encerramento & Preview | 5 min |
-Conceitos-chave, tarefa, prévia de Avaliação de Modelos (Aula 09) |
-
-______________________________________________________________________
-
 ## Conceitos-Chave
 
 - **Maldição da dimensionalidade:** em espaços de alta dimensão, todos os pontos ficam "longe" uns dos outros —

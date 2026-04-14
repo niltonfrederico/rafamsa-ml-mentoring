@@ -59,16 +59,6 @@ ______________________________________________________________________
 
 ______________________________________________________________________
 
-## Estrutura da Aula (90 min)
-
-| Bloco | Tempo | Conteúdo | |---|---|---| | Setup & Motivação | 15 min | "E se não tivermos rótulos?" — motivação para
-não-supervisionado, visualização inicial dos dados | | Implementação Prática | 55 min | K-Means, curva do cotovelo,
-clusterização hierárquica, dendrograma, visualização com PCA | | Interpretação & Discussão | 15 min | Os clusters
-descobertos correspondem a escritores reais? O que cada cluster representa? | | Encerramento & Preview | 5 min |
-Conceitos-chave, tarefa, prévia de Redução de Dimensionalidade (Aula 08) |
-
-______________________________________________________________________
-
 ## Conceitos-Chave
 
 - **Aprendizado não-supervisionado:** descobrir estrutura nos dados sem rótulos

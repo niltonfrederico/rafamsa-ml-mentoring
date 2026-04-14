@@ -47,16 +47,6 @@ ______________________________________________________________________
 
 ______________________________________________________________________
 
-## Estrutura da Aula (90 min)
-
-| Bloco | Tempo | Conteúdo | |---|---|---| | Setup & Motivação | 15 min | Do contínuo para o binário: motivação
-probabilística, geração do dataset | | Implementação Prática | 55 min | Função sigmoide, treino do modelo, matriz de
-confusão, curva ROC, análise de coeficientes | | Interpretação & Discussão | 15 min | Quando confiar na probabilidade?
-Trade-off precisão/recall, casos de uso forenses | | Encerramento & Preview | 5 min | Conceitos-chave, tarefa, prévia de
-Random Forest (Aula 05) |
-
-______________________________________________________________________
-
 ## Conceitos-Chave
 
 - **Função sigmoide:** transforma qualquer valor real em probabilidade (0–1)

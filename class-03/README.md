@@ -47,16 +47,6 @@ ______________________________________________________________________
 
 ______________________________________________________________________
 
-## Estrutura da Aula (90 min)
-
-| Bloco | Tempo | Conteúdo | |---|---|---| | Setup & Motivação | 15 min | Classificação vs. regressão, geração do
-dataset sintético, exploração | | Implementação Prática | 55 min | Correlação, regressão simples (pressão → velocidade),
-regressão múltipla, análise de resíduos | | Interpretação & Discussão | 15 min | Interpretação dos coeficientes, padrões
-individuais por escritor, limitações do modelo linear | | Encerramento & Preview | 5 min | Conceitos-chave, tarefa,
-prévia de Regressão Logística (Aula 04) |
-
-______________________________________________________________________
-
 ## Conceitos-Chave
 
 - **Regressão:** previsão de valor contínuo (não uma categoria)
