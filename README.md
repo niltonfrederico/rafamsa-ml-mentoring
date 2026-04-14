@@ -41,10 +41,12 @@ Ao final do curso, o aluno será capaz de:
 
 ### Estrutura de cada Aula (90 min)
 
-| Bloco | Duração | Conteúdo | |---|---|---| | Setup & Motivação | 15 min | Revisão, apresentação do dataset, objetivos
-da aula | | Implementação Prática | 55 min | Codificação passo a passo | | Interpretação & Discussão | 15 min | Análise
-dos resultados, conexões com o mundo real | | Encerramento & Preview | 5 min | Conceitos-chave, tarefa, prévia da
-próxima aula |
+| Bloco | Duração | Conteúdo |
+|---|---|---|
+| Setup & Motivação | 15 min | Revisão, apresentação do dataset, objetivos da aula |
+| Implementação Prática | 55 min | Codificação passo a passo |
+| Interpretação & Discussão | 15 min | Análise dos resultados, conexões com o mundo real |
+| Encerramento & Preview | 5 min | Conceitos-chave, tarefa, prévia da próxima aula |
 
 ______________________________________________________________________
 
@@ -208,20 +210,17 @@ ______________________________________________________________________
 
 ## Currículo — Sumário das Aulas
 
-| # | Tópico | Algoritmo | Aplicação | Dataset | Status | |---|---|---|---|---|---| | [01](class-01/README.md) |
-Introdução ao ML & Reconhecimento de Dígitos | k-Nearest Neighbors | Classificação de dígitos manuscritos | sklearn
-`digits` | ✅ Concluída | | [02](class-02/README.md) | Árvores de Decisão & Reconhecimento de Letras | Decision Tree |
-Reconhecimento de letras A–Z | UCI Letter Recognition | 🔜 Pendente | | [03](class-03/README.md) | Regressão Linear &
-Métricas de Escrita | Linear Regression | Previsão de velocidade de escrita | Sintético | 🔜 Pendente | |
-[04](class-04/README.md) | Regressão Logística & Classificação de Escritores | Logistic Regression | Classificação
-binária de escritores | Sintético | 🔜 Pendente | | [05](class-05/README.md) | Métodos Ensemble & Identificação
-Multi-Escritor | Random Forest | Identificação multi-classe de escritores | UCI / Sintético | 🔜 Pendente | |
-[06](class-06/README.md) | Support Vector Machines & Identificação Avançada | SVM (kernels) | Identificação com padrões
-não-lineares | UCI / Sintético | 🔜 Pendente | | [07](class-07/README.md) | Clustering & Descoberta de Estilos de Escrita
-| K-Means, Hierárquico | Agrupamento não-supervisionado de estilos | UCI / Sintético | 🔜 Pendente | |
-[08](class-08/README.md) | Redução de Dimensionalidade & Visualização | PCA, t-SNE | Visualização do espaço de features
-| sklearn `digits` | 🔜 Pendente | | [09](class-09/README.md) | Avaliação de Modelos & Validação | Cross-validation,
-testes estatísticos | Avaliação rigorosa e comparação de modelos | Todos | 🔜 Pendente |
+| # | Tópico | Algoritmo | Aplicação | Dataset | Status |
+|---|---|---|---|---|---|
+| [01](class-01/README.md) | Introdução ao ML & Reconhecimento de Dígitos | k-Nearest Neighbors | Classificação de dígitos manuscritos | sklearn `digits` | ✅ Concluída |
+| [02](class-02/README.md) | Árvores de Decisão & Reconhecimento de Letras | Decision Tree | Reconhecimento de letras A–Z | UCI Letter Recognition | ✅ Concluída |
+| [03](class-03/README.md) | Regressão Linear & Métricas de Escrita | Linear Regression | Previsão de velocidade de escrita | Sintético | 🔜 Pendente |
+| [04](class-04/README.md) | Regressão Logística & Classificação de Escritores | Logistic Regression | Classificação binária de escritores | Sintético | 🔜 Pendente |
+| [05](class-05/README.md) | Métodos Ensemble & Identificação Multi-Escritor | Random Forest | Identificação multi-classe de escritores | UCI / Sintético | 🔜 Pendente |
+| [06](class-06/README.md) | Support Vector Machines & Identificação Avançada | SVM (kernels) | Identificação com padrões não-lineares | UCI / Sintético | 🔜 Pendente |
+| [07](class-07/README.md) | Clustering & Descoberta de Estilos de Escrita | K-Means, Hierárquico | Agrupamento não-supervisionado de estilos | UCI / Sintético | 🔜 Pendente |
+| [08](class-08/README.md) | Redução de Dimensionalidade & Visualização | PCA, t-SNE | Visualização do espaço de features | sklearn `digits` | 🔜 Pendente |
+| [09](class-09/README.md) | Avaliação de Modelos & Validação | Cross-validation, testes estatísticos | Avaliação rigorosa e comparação de modelos | Todos | 🔜 Pendente |
 
 ______________________________________________________________________
 
@@ -234,8 +233,9 @@ ______________________________________________________________________
 ├── GLOSSARY.md            # Glossário de termos de ML do curso
 ├── .github/
 │   ├── copilot-instructions.md   # Diretrizes de geração de conteúdo
+│   ├── agents/                   # Definições dos agentes Lucca e Magus
 │   ├── instructions/             # Perfil do usuário (calibração dos agentes)
-│   └── prompts/                  # Skills dos agentes (evaluate-user, etc.)
+│   └── skills/                   # Skills dos agentes (evaluate-user, etc.)
 ├── class-01/
 │   ├── README.md                 # Contrato conceitual da aula
 │   └── class-01-digit-recognition.ipynb
@@ -249,9 +249,10 @@ ______________________________________________________________________
 
 Este repositório usa dois agentes de IA para suporte ao curso:
 
-| Agente | Propósito | Quando chamar | |---|---|---| | **magus** | Tire dúvidas sobre conceitos, algoritmos, resultados
-e ML em geral | "O que é overfitting?", "Por que o SVM funciona melhor com dados normalizados?" | | **lucca** | Geração
-de notebooks, exercícios e material didático | "Gerar Aula 02: Árvores de Decisão" |
+| Agente | Propósito | Quando chamar |
+|---|---|---|
+| **magus** | Tire dúvidas sobre conceitos, algoritmos, resultados e ML em geral | "O que é overfitting?", "Por que o SVM funciona melhor com dados normalizados?" |
+| **lucca** | Geração de notebooks, exercícios e material didático | "Gerar Aula 02: Árvores de Decisão" |
 
 ______________________________________________________________________
 

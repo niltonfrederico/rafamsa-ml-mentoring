@@ -6,7 +6,8 @@ ______________________________________________________________________
 
 ## Índice
 
-- [Aula 01 — k-NN & Reconhecimento de Dígitos](#aula-01--k-nn--reconhecimento-de-d%C3%ADgitos)
+- [Aula 01 — k-NN & Reconhecimento de Dígitos](#aula-01--k-nn--reconhecimento-de-dígitos)
+- [Aula 02 — Árvores de Decisão & Reconhecimento de Letras](#aula-02--árvores-de-decisão--reconhecimento-de-letras)
 
 ______________________________________________________________________
 
@@ -267,4 +268,94 @@ discriminativa.
 
 ______________________________________________________________________
 
-*Glossário atualizado na Aula 01. Novos termos serão adicionados a cada aula.*
+## Aula 02 — Árvores de Decisão & Reconhecimento de Letras
+
+______________________________________________________________________
+
+### Árvore de Decisão *(Decision Tree)*
+
+**Definição:** Algoritmo de classificação que aprende regras binárias explícitas a partir dos dados, formando uma
+estrutura de árvore. Cada nó representa uma pergunta sobre uma feature ("feature X > limiar?"); as folhas representam a
+classe prevista.
+
+**Intuição:** É como um fluxograma de decisão — o modelo aprende quais perguntas fazer e em que ordem para identificar
+melhor cada classe. Ao contrário do k-NN, a árvore é **interpretável**: dá para ler as regras aprendidas.
+
+**Parâmetros chave:**
+
+- `max_depth`: profundidade máxima — principal controle de complexidade
+- `criterion`: métrica de impureza para escolher as divisões (`'gini'` ou `'entropy'`)
+- `min_samples_split`: número mínimo de amostras para dividir um nó
+
+**No curso:** usado na Aula 02 para reconhecer letras A–Z com o dataset UCI Letter Recognition.
+
+______________________________________________________________________
+
+### Bias-Variance Tradeoff
+
+**Definição:** Dilema fundamental em ML entre dois tipos de erro:
+
+- **Bias (viés):** erro causado por suposições excessivamente simples — modelo incapaz de capturar os padrões reais
+  (underfitting)
+- **Variância:** erro causado por sensibilidade excessiva ao conjunto de treino — modelo que memoriza ruído
+  (overfitting)
+
+**Equilíbrio:** modelos com alta complexidade (ex: árvore profunda) têm baixo bias mas alta variância. Modelos simples
+(ex: árvore rasa) têm alto bias mas baixa variância. O objetivo é encontrar o ponto onde o erro total no conjunto de
+teste é mínimo.
+
+**Evidência prática:** A curva treino vs. teste por `max_depth` mostra visualmente esse tradeoff — o pico da acurácia
+no teste marca o equilíbrio ideal.
+
+______________________________________________________________________
+
+### Importância de Features *(Feature Importance)*
+
+**Definição:** Métrica que quantifica o quanto cada feature contribuiu para a aprendizagem do modelo. Em Árvores de
+Decisão, é calculada como a média ponderada das reduções de impureza (Gini) que a feature causou em todos os nós da
+árvore, normalizada para somar 1.
+
+**Interpretação:** Features com alta importância são as que o modelo mais usou para separar as classes — equivale a
+identificar quais características da escrita são mais discriminativas para distinguir letras ou pessoas.
+
+**Atenção:** Features correlacionadas tendem a "dividir" a importância entre si. Importância não implica causalidade —
+uma feature pode ser importante por correlação espúria. Para estimativas mais robustas, usar Random Forest (Aula 05).
+
+______________________________________________________________________
+
+### Interpretabilidade *(Interpretability)*
+
+**Definição:** Capacidade de um modelo de ML de explicar *como* chegou a uma predição de forma compreensível para
+humanos. Um modelo interpretável permite auditar as decisões, identificar erros sistemáticos e justificar resultados
+em contextos de alto risco.
+
+**Por que importa:** Em aplicações forenses (análise de documentos suspeitos), um perito precisa justificar sua
+conclusão em tribunal. Um modelo que apenas retorna "é a letra X" não é suficiente — é preciso evidência rastreável.
+
+**Escala de interpretabilidade:**
+
+- **Alta:** Árvores de Decisão, Regressão Linear/Logística (regras e coeficientes explícitos)
+- **Baixa:** k-NN, Redes Neurais (caixa-preta — difícil de explicar por que classificou assim)
+
+______________________________________________________________________
+
+### Índice Gini *(Gini Index)*
+
+**Definição:** Medida de impureza de um nó em uma Árvore de Decisão. Um nó puro (todos os exemplos da mesma classe)
+tem Gini = 0. Um nó com classes uniformemente distribuídas tem Gini ≈ 0,5 (máxima impureza para classificação binária).
+
+**Fórmula:**
+
+$$G = 1 - \sum_{i=1}^{C} p_i^2$$
+
+onde $p_i$ é a proporção de amostras da classe $i$ no nó e $C$ é o número de classes.
+
+**Como é usado:** A cada divisão, a árvore escolhe a feature e o limiar que **minimiza o Gini ponderado** dos dois nós
+filhos — ou seja, que resulta nos grupos mais puros.
+
+**Alternativa:** A entropia (critério `'entropy'`) mede o mesmo conceito via teoria da informação, com resultado
+prático quase idêntico ao Gini na maioria dos datasets.
+
+______________________________________________________________________
+
+*Glossário atualizado na Aula 02. Novos termos serão adicionados a cada aula.*

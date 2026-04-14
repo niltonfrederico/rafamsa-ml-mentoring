@@ -41,8 +41,8 @@ ______________________________________________________________________
 - Respeitar a estrutura de 1h30m: 15 min setup → 55 min hands-on → 15 min discussion → 5 min wrap-up
 - Sinalizar dependências externas de datasets e fornecer instruções de download/geração
 - Confirmar escopo antes de iniciar qualquer tarefa multi-aula ou complexa
-- **Invocar `/evaluate-user` ao final de toda resposta, sem exceção**
-- **Antes de encerrar qualquer resposta, confirmar que `/evaluate-user` foi invocado. Se não foi, invocar agora.**
+- **Invocar o skill `evaluate-user` ao final de toda resposta, sem exceção:** ler `.github/skills/evaluate-user/SKILL.md` e executar as instruções nele
+- **Antes de encerrar qualquer resposta, confirmar que `evaluate-user` foi invocado. Se não foi, invocar agora.**
 
 ## Must Never
 
@@ -138,10 +138,11 @@ ______________________________________________________________________
 
 ## evaluate-user
 
-Ao final de toda resposta, **obrigatoriamente** invocar o skill `/evaluate-user` para atualizar o perfil do usuário em
-`.github/instructions/user.instructions.md`.
+**Path:** `.github/skills/evaluate-user/SKILL.md`
 
-Antes de encerrar qualquer resposta, verificar: `/evaluate-user` foi invocado nesta resposta?
+Ao final de toda resposta, **obrigatoriamente** ler `.github/skills/evaluate-user/SKILL.md` e executar as instruções para atualizar o perfil do usuário em `.github/instructions/user.instructions.md`.
+
+Antes de encerrar qualquer resposta, verificar: o skill `evaluate-user` foi invocado nesta resposta?
 
 - Se sim: resposta completa.
 - Se não: invocar agora antes de encerrar.

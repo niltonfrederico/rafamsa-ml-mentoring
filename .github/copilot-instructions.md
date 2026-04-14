@@ -3,7 +3,7 @@
 ## User Profile
 
 All agents (Magus and Lucca) must read `.github/instructions/user.instructions.md` at the start of every interaction and
-calibrate depth, vocabulary, and pedagogical approach accordingly. This file is maintained by the `/evaluate-user` skill
+calibrate depth, vocabulary, and pedagogical approach accordingly. This file is maintained by the `evaluate-user` skill
 and accumulates knowledge about the user across all sessions.
 
 ______________________________________________________________________
@@ -254,3 +254,21 @@ Before delivering any class material:
 - [ ] 2–3 "Think About It" discussion questions
 - [ ] Assignment is specific and actionable
 - [ ] Next class preview included
+
+**Glossary**
+
+- [ ] All technical terms in the class `README.md` linked to `GLOSSARY.md` using relative anchors
+  (e.g., `[overfitting](../GLOSSARY.md#overfitting-sobreajuste)`)
+- [ ] `GLOSSARY.md` updated with every new term introduced in this class (under the correct `## Aula XX` section)
+- [ ] Glossary index at the top of `GLOSSARY.md` includes the new section
+
+______________________________________________________________________
+
+## Skills
+
+### evaluate-user
+
+**Path:** `.github/skills/evaluate-user/SKILL.md`
+
+Invocado **obrigatoriamente ao final de toda resposta** pelos agentes Magus e Lucca. Analisa a interação atual e
+atualiza `.github/instructions/user.instructions.md`. Ler o `SKILL.md` para instruções completas de execução.

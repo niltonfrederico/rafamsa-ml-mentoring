@@ -36,8 +36,8 @@ o k-NN classifica pelo parecido com exemplos conhecidos.
 
 **Parâmetros chave:**
 
-- `n_neighbors` (`k`): número de vizinhos — valores menores = modelo mais sensível, maior risco de overfitting; valores
-  maiores = mais estável, risco de underfitting
+- `n_neighbors` (`k`): número de vizinhos — valores menores = modelo mais sensível, maior risco de [overfitting](../GLOSSARY.md#overfitting-sobreajuste); valores
+  maiores = mais estável, risco de [underfitting](../GLOSSARY.md#underfitting-subajuste)
 - `metric`: distância usada para medir "parecido" (padrão: Euclidiana)
 
 ______________________________________________________________________
@@ -54,20 +54,22 @@ ______________________________________________________________________
 
 ## Estrutura da Aula (90 min)
 
-| Bloco | Tempo | Conteúdo | |---|---|---| | Setup & Motivação | 15 min | Apresentação do curso, objetivos, carregamento
-e visualização do dataset | | Implementação Prática | 55 min | Divisão treino/teste, treino do k-NN, predição,
-avaliação, comparação de valores de k | | Interpretação & Discussão | 15 min | Análise da matriz de confusão, quais
-dígitos são mais difíceis e por quê | | Encerramento & Preview | 5 min | Conceitos-chave, tarefa, prévia da Aula 02 |
+| Bloco | Tempo | Conteúdo |
+|---|---|---|
+| Setup & Motivação | 15 min | Apresentação do curso, objetivos, carregamento e visualização do dataset |
+| Implementação Prática | 55 min | Divisão treino/teste, treino do k-NN, predição, avaliação, comparação de valores de k |
+| Interpretação & Discussão | 15 min | Análise da [matriz de confusão](../GLOSSARY.md#matriz-de-confusão-confusion-matrix), quais dígitos são mais difíceis e por quê |
+| Encerramento & Preview | 5 min | Conceitos-chave, tarefa, prévia da Aula 02 |
 
 ______________________________________________________________________
 
 ## Conceitos-Chave
 
-- **Classificação:** prever a qual categoria um exemplo pertence
-- **Treino/teste:** separar dados para treinar e avaliar o modelo de forma honesta
-- **Acurácia:** porcentagem de predições corretas
-- **Matriz de confusão:** tabela que mostra quais classes o modelo confunde entre si
-- **Overfitting:** modelo que "memoriza" o treino mas generaliza mal
+- **[Classificação](../GLOSSARY.md#classificação-classification):** prever a qual categoria um exemplo pertence
+- **Treino/teste:** separar dados para treinar e avaliar o modelo de forma honesta — ver [Conjunto de Treino](../GLOSSARY.md#conjunto-de-treino-training-set) e [Conjunto de Teste](../GLOSSARY.md#conjunto-de-teste-test-set)
+- **[Acurácia](../GLOSSARY.md#acurácia-accuracy):** porcentagem de predições corretas
+- **[Matriz de confusão](../GLOSSARY.md#matriz-de-confusão-confusion-matrix):** tabela que mostra quais classes o modelo confunde entre si
+- **[Overfitting](../GLOSSARY.md#overfitting-sobreajuste):** modelo que "memoriza" o treino mas generaliza mal
 
 ______________________________________________________________________
 
@@ -92,15 +94,20 @@ ______________________________________________________________________
 
 Todos os pacotes usados nesta aula estão declarados no `pyproject.toml`:
 
-| Pacote | Uso na aula | |---|---| | `scikit-learn` | Dataset `digits`, `KNeighborsClassifier`, `train_test_split`,
-métricas | | `numpy` | Manipulação de arrays, reshape de imagens | | `matplotlib` | Visualização de imagens de dígitos,
-curvas de acurácia | | `seaborn` | Heatmap da matriz de confusão |
+| Pacote | Uso na aula |
+|---|---|
+| `scikit-learn` | Dataset `digits`, `KNeighborsClassifier`, `train_test_split`, métricas |
+| `numpy` | Manipulação de arrays, reshape de imagens |
+| `matplotlib` | Visualização de imagens de dígitos, curvas de acurácia |
+| `seaborn` | Heatmap da [matriz de confusão](../GLOSSARY.md#matriz-de-confusão-confusion-matrix) |
 
 ______________________________________________________________________
 
 ## Arquivos desta Aula
 
-| Arquivo | Descrição | |---|---| | `class-01-digit-recognition.ipynb` | Notebook completo da aula — já executado |
+| Arquivo | Descrição |
+|---|---|
+| `class-01-digit-recognition.ipynb` | Notebook completo da aula — já executado |
 
 ______________________________________________________________________
 
