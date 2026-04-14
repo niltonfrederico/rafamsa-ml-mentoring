@@ -7,18 +7,26 @@ ______________________________________________________________________
 
 ## Índice
 
-1. [Visão Geral do Curso](#vis%C3%A3o-geral-do-curso)
-1. [Configuração do Ambiente](#configura%C3%A7%C3%A3o-do-ambiente)
-   - [1. Instalar o Homebrew](#1-instalar-o-homebrew)
-   - [2. Instalar o pipx via Homebrew](#2-instalar-o-pipx-via-homebrew)
-   - [3. Instalar o Poetry via pipx](#3-instalar-o-poetry-via-pipx)
-   - [4. Instalar o projeto](#4-instalar-o-projeto)
-   - [5. Ativar o ambiente virtual](#5-ativar-o-ambiente-virtual)
-1. [Executando as Aulas](#executando-as-aulas)
-1. [Currículo — Sumário das Aulas](#curr%C3%ADculo--sum%C3%A1rio-das-aulas)
-1. [Estrutura do Repositório](#estrutura-do-reposit%C3%B3rio)
-1. [Agentes de IA](#agentes-de-ia)
-1. [Glossário](#gloss%C3%A1rio)
+- [Reconhecimento de Escrita Manual \& Identificação de Pessoas — Curso de Mentoria em ML](#reconhecimento-de-escrita-manual--identificação-de-pessoas--curso-de-mentoria-em-ml)
+  - [Índice](#índice)
+  - [Visão Geral do Curso](#visão-geral-do-curso)
+    - [Objetivos do Curso](#objetivos-do-curso)
+  - [Configuração do Ambiente](#configuração-do-ambiente)
+    - [1. Instalar o Homebrew](#1-instalar-o-homebrew)
+    - [2. Instalar o pipx via Homebrew](#2-instalar-o-pipx-via-homebrew)
+    - [3. Instalar o Poetry via pipx](#3-instalar-o-poetry-via-pipx)
+    - [4. Instalar o projeto](#4-instalar-o-projeto)
+    - [5. Ativar o ambiente virtual](#5-ativar-o-ambiente-virtual)
+      - [No terminal](#no-terminal)
+      - [No VS Code](#no-vs-code)
+  - [Executando as Aulas](#executando-as-aulas)
+    - [Preparando o Lab da Aula](#preparando-o-lab-da-aula)
+    - [Iniciando o Jupyter Lab](#iniciando-o-jupyter-lab)
+    - [Executando um Notebook](#executando-um-notebook)
+  - [Currículo — Sumário das Aulas](#currículo--sumário-das-aulas)
+  - [Estrutura do Repositório](#estrutura-do-repositório)
+  - [Agentes de IA](#agentes-de-ia)
+  - [Glossário](#glossário)
 
 ______________________________________________________________________
 
@@ -171,6 +179,24 @@ ______________________________________________________________________
 
 ## Executando as Aulas
 
+### Preparando o Lab da Aula
+
+Antes de começar uma aula, copie o notebook para sua pasta `labs/` pessoal. Isso preserva o notebook original e dá
+liberdade para experimentar sem risco de sobrescrever o material do curso:
+
+```bash
+poetry run lab <número_da_aula>
+```
+
+Exemplos:
+
+```bash
+poetry run lab 1    # copia class-01/*.ipynb → class-01/labs/
+poetry run lab 02   # copia class-02/*.ipynb → class-02/labs/
+```
+
+O arquivo copiado em `labs/` é ignorado pelo git — suas modificações ficam apenas na sua máquina.
+
 ### Iniciando o Jupyter Lab
 
 Com o ambiente ativado (`poetry shell`), execute:
@@ -189,8 +215,8 @@ poetry run jupyter lab
 
 ### Executando um Notebook
 
-1. No Jupyter Lab, navegue pela árvore de arquivos à esquerda até a pasta da aula desejada (ex: `class-01/`)
-1. Abra o arquivo `.ipynb` correspondente
+1. Execute `poetry run lab <número>` para copiar o notebook para `labs/`
+1. No Jupyter Lab, navegue até `class-XX/labs/` e abra o arquivo copiado
 1. Para executar todas as células em sequência: menu **Run → Run All Cells** (ou `Shift+Enter` célula a célula)
 1. As células devem ser executadas **em ordem**, de cima para baixo — nunca pule etapas
 
@@ -222,6 +248,8 @@ ______________________________________________________________________
 ├── pyproject.toml         # Dependências e configuração do projeto
 ├── README.md              # Este arquivo
 ├── GLOSSARY.md            # Glossário de termos de ML do curso
+├── scripts/
+│   └── lab.py             # Comando `poetry run lab <n>` — copia notebook para labs/
 ├── .github/
 │   ├── copilot-instructions.md   # Diretrizes de geração de conteúdo
 │   ├── agents/                   # Definições dos agentes Lucca e Magus
@@ -229,9 +257,11 @@ ______________________________________________________________________
 │   └── skills/                   # Skills dos agentes (evaluate-user, etc.)
 ├── class-01/
 │   ├── README.md                 # Contrato conceitual da aula
-│   └── class-01-digit-recognition.ipynb
+│   ├── class-01-digit-recognition.ipynb
+│   └── labs/                     # Área de experimentação do aluno (ignorada pelo git)
 ├── class-02/ … class-09/
-│   └── README.md                 # Contrato conceitual (notebook gerado pelo Lucca)
+│   ├── README.md                 # Contrato conceitual (notebook gerado pelo Lucca)
+│   └── labs/                     # Área de experimentação do aluno (ignorada pelo git)
 ```
 
 ______________________________________________________________________
