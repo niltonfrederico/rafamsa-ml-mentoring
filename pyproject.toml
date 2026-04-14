@@ -1,0 +1,54 @@
+[project]
+name = "ml-learning"
+version = "0.1.0"
+description = "Handwriting Recognition & Person Identification — ML Mentoring Course"
+authors = [
+    { name = "Nilton Teixeira", email = "9078708+niltonfrederico@users.noreply.github.com" },
+]
+requires-python = ">=3.13"
+dependencies = [
+    "numpy>=2.0.0,<3",
+    "pandas>=3,<4",
+    "matplotlib>=3.8.0,<4",
+    "seaborn>=0.13.0,<0.14",
+    "scikit-learn>=1.4.0,<2",
+    "scipy>=1.13.0,<2",
+    "jupyter>=1.1.0,<2",
+    "ipywidgets>=8.1.0,<9",
+    "ipykernel>=7,<8",
+    "ucimlrepo>=0.0.7",
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+package-mode = false
+
+[tool.poetry.group.dev.dependencies]
+ruff = ">=0.15"
+mdformat = ">=1"
+pre-commit = ">=4"
+
+[tool.ruff]
+line-length = 120
+target-version = "py313"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "F",   # pyflakes
+    "I",   # isort
+    "TID", # flake8-tidy-imports (bans relative imports)
+]
+
+[tool.ruff.lint.isort]
+force-single-line = true
+lines-after-imports = 2
+
+[tool.ruff.lint.flake8-tidy-imports]
+ban-relative-imports = "all"
+
+[tool.mdformat]
+wrap = 120
