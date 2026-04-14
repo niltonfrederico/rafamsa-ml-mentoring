@@ -1,1 +1,6 @@
-.github/user.instructions.md
+.github/instructions/user.instructions.md
+.ruff_cache/
+.vscode/
+__pycache__/
+.pyc
+.ipynb_checkpoints/

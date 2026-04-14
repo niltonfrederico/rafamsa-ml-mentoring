@@ -1,80 +1,262 @@
-# Handwriting Recognition & Person Identification — ML Mentoring Course
+# Reconhecimento de Escrita Manual & Identificação de Pessoas — Curso de Mentoria em ML
 
-## Course Overview
-
-**Duration:** 9 classes × 1h30min each\
-**Framework:** scikit-learn focused\
-**Target Audience:** Students with Python knowledge and basic ML mathematics\
-**Approach:** Hands-on, practical — every class produces a working ML model applied to handwriting analysis
+> Curso prático de Machine Learning com scikit-learn aplicado a análise de escrita manual e identificação de pessoas.
+> **9 aulas · 1h30min cada · Python 3.13+**
 
 ______________________________________________________________________
 
-## Learning Objectives
+## Índice
 
-By the end of this course, students will be able to:
-
-- Apply fundamental ML algorithms to handwriting and image data
-- Use scikit-learn for classification, regression, clustering, and dimensionality reduction
-- Choose the right algorithm for a given problem
-- Evaluate model performance rigorously and avoid common pitfalls
-- Build systems capable of identifying individuals from their handwriting patterns
-
-______________________________________________________________________
-
-## Class Structure
-
-Every class follows the same 90-minute template:
-
-| Block | Duration | Content | |---|---|---| | Setup & Motivation | 15 min | Review, dataset intro, learning objectives
-| | Hands-On Implementation | 55 min | Step-by-step coding and exploration | | Interpretation & Discussion | 15 min |
-Results analysis, real-world connections | | Wrap-up & Preview | 5 min | Key concepts, assignment, next class |
+1. [Visão Geral do Curso](#vis%C3%A3o-geral-do-curso)
+1. [Configuração do Ambiente](#configura%C3%A7%C3%A3o-do-ambiente)
+   - [1. Instalar o Homebrew](#1-instalar-o-homebrew)
+   - [2. Instalar o pipx via Homebrew](#2-instalar-o-pipx-via-homebrew)
+   - [3. Instalar o Poetry via pipx](#3-instalar-o-poetry-via-pipx)
+   - [4. Instalar o projeto](#4-instalar-o-projeto)
+   - [5. Ativar o ambiente virtual](#5-ativar-o-ambiente-virtual)
+1. [Executando as Aulas](#executando-as-aulas)
+1. [Currículo — Sumário das Aulas](#curr%C3%ADculo--sum%C3%A1rio-das-aulas)
+1. [Estrutura do Repositório](#estrutura-do-reposit%C3%B3rio)
+1. [Agentes de IA](#agentes-de-ia)
+1. [Glossário](#gloss%C3%A1rio)
 
 ______________________________________________________________________
 
-## Curriculum
+## Visão Geral do Curso
 
-| # | Topic | Algorithm | Application | |---|---|---|---| | 01 | Introduction to ML & Digit Recognition | k-Nearest
-Neighbors | Handwritten digit classification | | 02 | Decision Trees & Character Features | Decision Tree | Letter
-recognition (A–Z) | | 03 | Linear Regression & Handwriting Metrics | Linear Regression | Predicting writing speed from
-pen features | | 04 | Logistic Regression & Writer Classification | Logistic Regression | Binary writer classification |
-| 05 | Ensemble Methods | Random Forest | Multi-person handwriting identification | | 06 | Support Vector Machines | SVM
-(kernels) | Advanced person identification | | 07 | Clustering & Writing Style Discovery | K-Means, Hierarchical |
-Unsupervised writing style grouping | | 08 | Dimensionality Reduction & Visualization | PCA, t-SNE | Visualizing
-handwriting feature space | | 09 | Model Evaluation & Validation | Cross-validation, statistical testing | Comprehensive
-evaluation strategies |
+**Duração:** 9 aulas × 1h30min cada\
+**Framework:** scikit-learn\
+**Público-alvo:** Estudantes com conhecimento de Python e matemática básica para ML\
+**Abordagem:** Prática — cada aula produz um modelo ML completo aplicado à análise de escrita
+
+### Objetivos do Curso
+
+Ao final do curso, o aluno será capaz de:
+
+- Aplicar algoritmos fundamentais de ML a dados de escrita e imagens
+- Usar scikit-learn para classificação, regressão, clustering e redução de dimensionalidade
+- Escolher o algoritmo certo para cada tipo de problema
+- Avaliar a performance de modelos de forma rigorosa e evitar armadilhas comuns
+- Construir sistemas capazes de identificar pessoas a partir de padrões de escrita
+
+### Estrutura de cada Aula (90 min)
+
+| Bloco | Duração | Conteúdo | |---|---|---| | Setup & Motivação | 15 min | Revisão, apresentação do dataset, objetivos
+da aula | | Implementação Prática | 55 min | Codificação passo a passo | | Interpretação & Discussão | 15 min | Análise
+dos resultados, conexões com o mundo real | | Encerramento & Preview | 5 min | Conceitos-chave, tarefa, prévia da
+próxima aula |
 
 ______________________________________________________________________
 
-## Agents
+## Configuração do Ambiente
 
-| Agent | Purpose | Call when | |---|---|---| | **magus** | Q&A — answers questions about the course content and ML
-concepts | You have a question about an algorithm, concept, or result | | **lucca** | Content creation — generates
-notebooks, code, teacher notes | You need to create or update class materials |
+### 1. Instalar o Homebrew
 
-______________________________________________________________________
+**O que é:** O [Homebrew](https://brew.sh) é o gerenciador de pacotes mais popular para macOS e Linux. Ele facilita a
+instalação de ferramentas de desenvolvimento sem precisar gerenciar arquivos manualmente ou usar `sudo` de forma
+arriscada.
 
-## Technical Setup
+**Por que usamos:** É a forma mais limpa de instalar `pipx` no Ubuntu sem depender dos pacotes do sistema, que costumam
+ser desatualizados.
+
+Acesse [brew.sh](https://brew.sh) para instruções completas. No Ubuntu, o comando é:
 
 ```bash
-# Install dependencies
-poetry install
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
 
-# Launch Jupyter
+Após a instalação, adicione o Homebrew ao seu PATH seguindo as instruções exibidas no terminal (geralmente adicionando
+duas linhas ao `~/.bashrc` ou `~/.profile`).
+
+Verifique a instalação:
+
+```bash
+brew --version
+```
+
+______________________________________________________________________
+
+### 2. Instalar o pipx via Homebrew
+
+**O que é:** O [pipx](https://pipx.pypa.io) instala ferramentas de linha de comando Python em ambientes isolados. Cada
+ferramenta fica em seu próprio virtualenv, mas continua acessível globalmente no terminal — sem conflitos de
+dependências.
+
+**Por que usamos:** Instalar o Poetry diretamente com `pip install poetry` pode causar conflitos com outros pacotes do
+sistema. O `pipx` isola o Poetry sem comprometer o Python global.
+
+```bash
+brew install pipx
+pipx ensurepath
+```
+
+Após o `ensurepath`, reinicie o terminal ou execute `source ~/.bashrc` para aplicar as mudanças de PATH.
+
+Verifique a instalação:
+
+```bash
+pipx --version
+```
+
+______________________________________________________________________
+
+### 3. Instalar o Poetry via pipx
+
+**O que é:** O [Poetry](https://python-poetry.org) é uma ferramenta moderna para gerenciamento de dependências e
+ambientes virtuais em Python. Ele lê o `pyproject.toml`, resolve dependências e cria um virtualenv isolado para o
+projeto.
+
+**Por que usamos:** Substitui a combinação `pip` + `venv` + `requirements.txt` com uma única ferramenta declarativa.
+Garante que todos que trabalham no projeto usem exatamente as mesmas versões de dependências.
+
+```bash
+pipx install poetry
+```
+
+Verifique a instalação:
+
+```bash
+poetry --version
+```
+
+______________________________________________________________________
+
+### 4. Instalar o projeto
+
+Com o Poetry instalado, clone o repositório (se ainda não tiver feito) e instale todas as dependências:
+
+```bash
+# Na raiz do projeto (onde está o pyproject.toml)
+poetry install
+```
+
+Isso vai:
+
+1. Criar um virtualenv dedicado para o projeto
+1. Instalar todas as dependências declaradas em `pyproject.toml` (numpy, pandas, scikit-learn, jupyter, etc.)
+1. Gerar/atualizar o `poetry.lock` com as versões exatas resolvidas
+
+> **Requisito:** Python 3.13 ou superior. Verifique com `python --version`.
+
+______________________________________________________________________
+
+### 5. Ativar o ambiente virtual
+
+#### No terminal
+
+```bash
+# Ativar o shell do virtualenv
+poetry shell
+
+# Ou executar um comando diretamente sem ativar
+poetry run python script.py
+```
+
+Para sair do virtualenv ativado:
+
+```bash
+exit
+```
+
+#### No VS Code
+
+1. Abra a pasta do projeto no VS Code
+1. Abra qualquer arquivo `.py` ou `.ipynb`
+1. Clique no seletor de interpretador no canto inferior direito (ou use o atalho `Ctrl+Shift+P` → **Python: Select
+   Interpreter**)
+1. Selecione o interpretador que contém o caminho do virtualenv do Poetry
+
+Para encontrar o caminho do virtualenv caso o VS Code não detecte automaticamente:
+
+```bash
+poetry env info --path
+```
+
+Copie o caminho retornado e cole no seletor de interpretador do VS Code.
+
+______________________________________________________________________
+
+## Executando as Aulas
+
+### Iniciando o Jupyter Lab
+
+Com o ambiente ativado (`poetry shell`), execute:
+
+```bash
 jupyter lab
 ```
 
-All dependencies are declared in `pyproject.toml`. Python 3.13 or higher required.
+O Jupyter Lab abrirá automaticamente no navegador padrão em `http://localhost:8888`.
+
+Alternativamente, sem ativar o shell:
+
+```bash
+poetry run jupyter lab
+```
+
+### Executando um Notebook
+
+1. No Jupyter Lab, navegue pela árvore de arquivos à esquerda até a pasta da aula desejada (ex: `class-01/`)
+1. Abra o arquivo `.ipynb` correspondente
+1. Para executar todas as células em sequência: menu **Run → Run All Cells** (ou `Shift+Enter` célula a célula)
+1. As células devem ser executadas **em ordem**, de cima para baixo — nunca pule etapas
+
+> Cada notebook foi construído para rodar do início ao fim sem erros. Se uma célula falhar, execute as anteriores
+> primeiro.
 
 ______________________________________________________________________
 
-## Repository Structure
+## Currículo — Sumário das Aulas
+
+| # | Tópico | Algoritmo | Aplicação | Dataset | Status | |---|---|---|---|---|---| | [01](class-01/README.md) |
+Introdução ao ML & Reconhecimento de Dígitos | k-Nearest Neighbors | Classificação de dígitos manuscritos | sklearn
+`digits` | ✅ Concluída | | [02](class-02/README.md) | Árvores de Decisão & Reconhecimento de Letras | Decision Tree |
+Reconhecimento de letras A–Z | UCI Letter Recognition | 🔜 Pendente | | [03](class-03/README.md) | Regressão Linear &
+Métricas de Escrita | Linear Regression | Previsão de velocidade de escrita | Sintético | 🔜 Pendente | |
+[04](class-04/README.md) | Regressão Logística & Classificação de Escritores | Logistic Regression | Classificação
+binária de escritores | Sintético | 🔜 Pendente | | [05](class-05/README.md) | Métodos Ensemble & Identificação
+Multi-Escritor | Random Forest | Identificação multi-classe de escritores | UCI / Sintético | 🔜 Pendente | |
+[06](class-06/README.md) | Support Vector Machines & Identificação Avançada | SVM (kernels) | Identificação com padrões
+não-lineares | UCI / Sintético | 🔜 Pendente | | [07](class-07/README.md) | Clustering & Descoberta de Estilos de Escrita
+| K-Means, Hierárquico | Agrupamento não-supervisionado de estilos | UCI / Sintético | 🔜 Pendente | |
+[08](class-08/README.md) | Redução de Dimensionalidade & Visualização | PCA, t-SNE | Visualização do espaço de features
+| sklearn `digits` | 🔜 Pendente | | [09](class-09/README.md) | Avaliação de Modelos & Validação | Cross-validation,
+testes estatísticos | Avaliação rigorosa e comparação de modelos | Todos | 🔜 Pendente |
+
+______________________________________________________________________
+
+## Estrutura do Repositório
 
 ```
-clean/
-├── .github/extensions/   # Agent definitions (magus, lucca)
-├── instructions/         # Content creation guidelines for Lucca
-├── class-01/             # Already taught — complete materials
-├── class-02/ to 09/      # Scaffolded — Lucca generates notebooks
-├── pyproject.toml        # Dependencies and tooling config
-└── .pre-commit-config.yaml
+.
+├── pyproject.toml         # Dependências e configuração do projeto
+├── README.md              # Este arquivo
+├── GLOSSARY.md            # Glossário de termos de ML do curso
+├── .github/
+│   ├── copilot-instructions.md   # Diretrizes de geração de conteúdo
+│   ├── instructions/             # Perfil do usuário (calibração dos agentes)
+│   └── prompts/                  # Skills dos agentes (evaluate-user, etc.)
+├── class-01/
+│   ├── README.md                 # Contrato conceitual da aula
+│   └── class-01-digit-recognition.ipynb
+├── class-02/ … class-09/
+│   └── README.md                 # Contrato conceitual (notebook gerado pelo Lucca)
 ```
+
+______________________________________________________________________
+
+## Agentes de IA
+
+Este repositório usa dois agentes de IA para suporte ao curso:
+
+| Agente | Propósito | Quando chamar | |---|---|---| | **magus** | Tire dúvidas sobre conceitos, algoritmos, resultados
+e ML em geral | "O que é overfitting?", "Por que o SVM funciona melhor com dados normalizados?" | | **lucca** | Geração
+de notebooks, exercícios e material didático | "Gerar Aula 02: Árvores de Decisão" |
+
+______________________________________________________________________
+
+## Glossário
+
+Consulte o [GLOSSARY.md](GLOSSARY.md) para definições dos termos técnicos usados no curso.
+
+O glossário é atualizado a cada aula com os novos termos introduzidos.
