@@ -5,3 +5,7 @@ __pycache__/
 .pyc
 .ipynb_checkpoints/
 teacher-notes.md
+
+# Labs — área de experimentação do aluno (ignorado, exceto o marcador)
+class-*/labs/*
+!class-*/labs/.gitkeep
