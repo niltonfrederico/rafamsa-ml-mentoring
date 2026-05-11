@@ -6,34 +6,34 @@ ______________________________________________________________________
 
 ## Índice
 
-- [Aula 01 — k-NN & Reconhecimento de Dígitos](#aula-01--k-nn--reconhecimento-de-dígitos)
-  - [Acurácia](#acurácia-accuracy)
+- [Aula 01 — k-NN & Reconhecimento de Dígitos](#aula-01--k-nn--reconhecimento-de-d%C3%ADgitos)
+  - [Acurácia](#acur%C3%A1cia-accuracy)
   - [Algoritmo de ML](#algoritmo-de-ml-ml-algorithm)
   - [Aprendizado Supervisionado](#aprendizado-supervisionado-supervised-learning)
-  - [Classificação](#classificação-classification)
+  - [Classificação](#classifica%C3%A7%C3%A3o-classification)
   - [Conjunto de Teste](#conjunto-de-teste-test-set)
   - [Conjunto de Treino](#conjunto-de-treino-training-set)
   - [Dataset](#dataset)
-  - [Distância Euclidiana](#distância-euclidiana-euclidean-distance)
+  - [Distância Euclidiana](#dist%C3%A2ncia-euclidiana-euclidean-distance)
   - [Feature (Atributo)](#feature-atributo)
-  - [Generalização](#generalização-generalization)
-  - [Hiperparâmetro](#hiperparâmetro-hyperparameter)
-  - [k-NN / k-Nearest Neighbors](#k-nn--k-nearest-neighbors-k-vizinhos-mais-próximos)
-  - [Matriz de Confusão](#matriz-de-confusão-confusion-matrix)
+  - [Generalização](#generaliza%C3%A7%C3%A3o-generalization)
+  - [Hiperparâmetro](#hiperpar%C3%A2metro-hyperparameter)
+  - [k-NN / k-Nearest Neighbors](#k-nn--k-nearest-neighbors-k-vizinhos-mais-pr%C3%B3ximos)
+  - [Matriz de Confusão](#matriz-de-confus%C3%A3o-confusion-matrix)
   - [Modelo](#modelo-model)
   - [Overfitting (Sobreajuste)](#overfitting-sobreajuste)
   - [Pipeline de ML](#pipeline-de-ml)
   - [`random_state`](#random_state)
   - [`train_test_split`](#train_test_split)
   - [Underfitting (Subajuste)](#underfitting-subajuste)
-- [Aula 02 — Árvores de Decisão & Reconhecimento de Letras](#aula-02--árvores-de-decisão--reconhecimento-de-letras)
-  - [Árvore de Decisão](#árvore-de-decisão-decision-tree)
+- [Aula 02 — Árvores de Decisão & Reconhecimento de Letras](#aula-02--%C3%A1rvores-de-decis%C3%A3o--reconhecimento-de-letras)
+  - [Árvore de Decisão](#%C3%A1rvore-de-decis%C3%A3o-decision-tree)
   - [Bias-Variance Tradeoff](#bias-variance-tradeoff)
   - [Entropia](#entropia-entropy)
-  - [Importância de Features](#importância-de-features-feature-importance)
+  - [Importância de Features](#import%C3%A2ncia-de-features-feature-importance)
   - [Interpretabilidade](#interpretabilidade-interpretability)
-  - [Índice Gini](#índice-gini-gini-index)
-  - [Nó e Folha](#nó-e-folha-node-and-leaf)
+  - [Índice Gini](#%C3%ADndice-gini-gini-index)
+  - [Nó e Folha](#n%C3%B3-e-folha-node-and-leaf)
 
 ______________________________________________________________________
 
@@ -330,24 +330,29 @@ ______________________________________________________________________
 (ex: árvore rasa) têm alto bias mas baixa variância. O objetivo é encontrar o ponto onde o erro total no conjunto de
 teste é mínimo.
 
-**Evidência prática:** A curva treino vs. teste por `max_depth` mostra visualmente esse tradeoff — o pico da acurácia
-no teste marca o equilíbrio ideal.
+**Evidência prática:** A curva treino vs. teste por `max_depth` mostra visualmente esse tradeoff — o pico da acurácia no
+teste marca o equilíbrio ideal.
 
 ______________________________________________________________________
 
 ### Entropia *(Entropy)*
 
-**Definição:** Medida de impureza de um nó em uma Árvore de Decisão, derivada da teoria da informação. Quantifica a "desordem" ou incerteza em um conjunto de amostras — um nó com todos os exemplos da mesma classe tem entropia 0; um nó com classes igualmente distribuídas tem entropia máxima.
+**Definição:** Medida de impureza de um nó em uma Árvore de Decisão, derivada da teoria da informação. Quantifica a
+"desordem" ou incerteza em um conjunto de amostras — um nó com todos os exemplos da mesma classe tem entropia 0; um nó
+com classes igualmente distribuídas tem entropia máxima.
 
 **Fórmula:**
 
-$$H = -\sum_{i=1}^{C} p_i \log_2(p_i)$$
+$$H = -\\sum\_{i=1}^{C} p_i \\log_2(p_i)$$
 
 onde $p_i$ é a proporção de amostras da classe $i$ no nó e $C$ é o número de classes.
 
-**Como é usado:** Alternativa ao [Índice Gini](../GLOSSARY.md#índice-gini-gini-index) via `criterion='entropy'` na `DecisionTreeClassifier`. A cada divisão, o algoritmo escolhe a feature e o limiar que maximiza o **ganho de informação** — a redução de entropia após a divisão.
+**Como é usado:** Alternativa ao [Índice Gini](../GLOSSARY.md#%C3%ADndice-gini-gini-index) via `criterion='entropy'` na
+`DecisionTreeClassifier`. A cada divisão, o algoritmo escolhe a feature e o limiar que maximiza o **ganho de
+informação** — a redução de entropia após a divisão.
 
-**Na prática:** Entropia e Gini tendem a produzir árvores muito similares. A entropia é ligeiramente mais lenta de calcular (por envolver logaritmo) e pode favorecer divisões mais balanceadas em alguns casos.
+**Na prática:** Entropia e Gini tendem a produzir árvores muito similares. A entropia é ligeiramente mais lenta de
+calcular (por envolver logaritmo) e pode favorecer divisões mais balanceadas em alguns casos.
 
 ______________________________________________________________________
 
@@ -368,8 +373,8 @@ ______________________________________________________________________
 ### Interpretabilidade *(Interpretability)*
 
 **Definição:** Capacidade de um modelo de ML de explicar *como* chegou a uma predição de forma compreensível para
-humanos. Um modelo interpretável permite auditar as decisões, identificar erros sistemáticos e justificar resultados
-em contextos de alto risco.
+humanos. Um modelo interpretável permite auditar as decisões, identificar erros sistemáticos e justificar resultados em
+contextos de alto risco.
 
 **Por que importa:** Em aplicações forenses (análise de documentos suspeitos), um perito precisa justificar sua
 conclusão em tribunal. Um modelo que apenas retorna "é a letra X" não é suficiente — é preciso evidência rastreável.
@@ -383,20 +388,20 @@ ______________________________________________________________________
 
 ### Índice Gini *(Gini Index)*
 
-**Definição:** Medida de impureza de um nó em uma Árvore de Decisão. Um nó puro (todos os exemplos da mesma classe)
-tem Gini = 0. Um nó com classes uniformemente distribuídas tem Gini ≈ 0,5 (máxima impureza para classificação binária).
+**Definição:** Medida de impureza de um nó em uma Árvore de Decisão. Um nó puro (todos os exemplos da mesma classe) tem
+Gini = 0. Um nó com classes uniformemente distribuídas tem Gini ≈ 0,5 (máxima impureza para classificação binária).
 
 **Fórmula:**
 
-$$G = 1 - \sum_{i=1}^{C} p_i^2$$
+$$G = 1 - \\sum\_{i=1}^{C} p_i^2$$
 
 onde $p_i$ é a proporção de amostras da classe $i$ no nó e $C$ é o número de classes.
 
 **Como é usado:** A cada divisão, a árvore escolhe a feature e o limiar que **minimiza o Gini ponderado** dos dois nós
 filhos — ou seja, que resulta nos grupos mais puros.
 
-**Alternativa:** A entropia (critério `'entropy'`) mede o mesmo conceito via teoria da informação, com resultado
-prático quase idêntico ao Gini na maioria dos datasets.
+**Alternativa:** A entropia (critério `'entropy'`) mede o mesmo conceito via teoria da informação, com resultado prático
+quase idêntico ao Gini na maioria dos datasets.
 
 ______________________________________________________________________
 
@@ -404,13 +409,17 @@ ______________________________________________________________________
 
 **Definição:** Elementos estruturais de uma Árvore de Decisão:
 
-- **Nó (interno):** ponto de decisão — aplica uma regra binária sobre uma feature ("feature X > limiar?") e direciona cada amostra para o ramo esquerdo (falso) ou direito (verdadeiro)
+- **Nó (interno):** ponto de decisão — aplica uma regra binária sobre uma feature ("feature X > limiar?") e direciona
+  cada amostra para o ramo esquerdo (falso) ou direito (verdadeiro)
 - **Nó raiz:** o primeiro nó da árvore — representa a divisão mais informativa de todo o dataset
-- **Folha (nó terminal):** nó sem filhos — representa uma decisão final; contém a classe majoritária das amostras que chegaram até ali
+- **Folha (nó terminal):** nó sem filhos — representa uma decisão final; contém a classe majoritária das amostras que
+  chegaram até ali
 
-**Profundidade:** A distância do nó raiz até uma folha define a profundidade da árvore. `max_depth=3` significa no máximo 3 níveis de perguntas antes de chegar a uma folha.
+**Profundidade:** A distância do nó raiz até uma folha define a profundidade da árvore. `max_depth=3` significa no
+máximo 3 níveis de perguntas antes de chegar a uma folha.
 
-**Visualização:** O parâmetro `plot_tree()` do sklearn desenha a árvore completa — cada caixa é um nó, com a regra de divisão, o valor do Gini/Entropia, o número de amostras e a classe majoritária.
+**Visualização:** O parâmetro `plot_tree()` do sklearn desenha a árvore completa — cada caixa é um nó, com a regra de
+divisão, o valor do Gini/Entropia, o número de amostras e a classe majoritária.
 
 ______________________________________________________________________
 

@@ -7,11 +7,11 @@ ______________________________________________________________________
 
 ## Índice
 
-- [Reconhecimento de Escrita Manual \& Identificação de Pessoas — Curso de Mentoria em ML](#reconhecimento-de-escrita-manual--identificação-de-pessoas--curso-de-mentoria-em-ml)
-  - [Índice](#índice)
-  - [Visão Geral do Curso](#visão-geral-do-curso)
+- [Reconhecimento de Escrita Manual & Identificação de Pessoas — Curso de Mentoria em ML](#reconhecimento-de-escrita-manual--identifica%C3%A7%C3%A3o-de-pessoas--curso-de-mentoria-em-ml)
+  - [Índice](#%C3%ADndice)
+  - [Visão Geral do Curso](#vis%C3%A3o-geral-do-curso)
     - [Objetivos do Curso](#objetivos-do-curso)
-  - [Configuração do Ambiente](#configuração-do-ambiente)
+  - [Configuração do Ambiente](#configura%C3%A7%C3%A3o-do-ambiente)
     - [1. Instalar o Homebrew](#1-instalar-o-homebrew)
     - [2. Instalar o pipx via Homebrew](#2-instalar-o-pipx-via-homebrew)
     - [3. Instalar o Poetry via pipx](#3-instalar-o-poetry-via-pipx)
@@ -23,10 +23,10 @@ ______________________________________________________________________
     - [Preparando o Lab da Aula](#preparando-o-lab-da-aula)
     - [Iniciando o Jupyter Lab](#iniciando-o-jupyter-lab)
     - [Executando um Notebook](#executando-um-notebook)
-  - [Currículo — Sumário das Aulas](#currículo--sumário-das-aulas)
-  - [Estrutura do Repositório](#estrutura-do-repositório)
+  - [Currículo — Sumário das Aulas](#curr%C3%ADculo--sum%C3%A1rio-das-aulas)
+  - [Estrutura do Repositório](#estrutura-do-reposit%C3%B3rio)
   - [Agentes de IA](#agentes-de-ia)
-  - [Glossário](#glossário)
+  - [Glossário](#gloss%C3%A1rio)
 
 ______________________________________________________________________
 
@@ -227,17 +227,20 @@ ______________________________________________________________________
 
 ## Currículo — Sumário das Aulas
 
-| # | Tópico | Algoritmo | Aplicação | Dataset | Status |
-|---|---|---|---|---|---|
-| [01](class-01/README.md) | Introdução ao ML & Reconhecimento de Dígitos | k-Nearest Neighbors | Classificação de dígitos manuscritos | sklearn `digits` | ✅ Concluída |
-| [02](class-02/README.md) | Árvores de Decisão & Reconhecimento de Letras | Decision Tree | Reconhecimento de letras A–Z | UCI Letter Recognition | ✅ Concluída |
-| [03](class-03/README.md) | Regressão Linear & Métricas de Escrita | Linear Regression | Previsão de velocidade de escrita | Sintético | 🔜 Pendente |
-| [04](class-04/README.md) | Regressão Logística & Classificação de Escritores | Logistic Regression | Classificação binária de escritores | Sintético | 🔜 Pendente |
-| [05](class-05/README.md) | Métodos Ensemble & Identificação Multi-Escritor | Random Forest | Identificação multi-classe de escritores | UCI / Sintético | 🔜 Pendente |
-| [06](class-06/README.md) | Support Vector Machines & Identificação Avançada | SVM (kernels) | Identificação com padrões não-lineares | UCI / Sintético | 🔜 Pendente |
-| [07](class-07/README.md) | Clustering & Descoberta de Estilos de Escrita | K-Means, Hierárquico | Agrupamento não-supervisionado de estilos | UCI / Sintético | 🔜 Pendente |
-| [08](class-08/README.md) | Redução de Dimensionalidade & Visualização | PCA, t-SNE | Visualização do espaço de features | sklearn `digits` | 🔜 Pendente |
-| [09](class-09/README.md) | Avaliação de Modelos & Validação | Cross-validation, testes estatísticos | Avaliação rigorosa e comparação de modelos | Todos | 🔜 Pendente |
+| # | Tópico | Algoritmo | Aplicação | Dataset | Status | |---|---|---|---|---|---| | [01](class-01/README.md) |
+Introdução ao ML & Reconhecimento de Dígitos | k-Nearest Neighbors | Classificação de dígitos manuscritos | sklearn
+`digits` | ✅ Concluída | | [02](class-02/README.md) | Árvores de Decisão & Reconhecimento de Letras | Decision Tree |
+Reconhecimento de letras A–Z | UCI Letter Recognition | ✅ Concluída | | [03](class-03/README.md) | Regressão Linear &
+Métricas de Escrita | Linear Regression | Previsão de velocidade de escrita | Sintético | 🔜 Pendente | |
+[04](class-04/README.md) | Regressão Logística & Classificação de Escritores | Logistic Regression | Classificação
+binária de escritores | Sintético | 🔜 Pendente | | [05](class-05/README.md) | Métodos Ensemble & Identificação
+Multi-Escritor | Random Forest | Identificação multi-classe de escritores | UCI / Sintético | 🔜 Pendente | |
+[06](class-06/README.md) | Support Vector Machines & Identificação Avançada | SVM (kernels) | Identificação com padrões
+não-lineares | UCI / Sintético | 🔜 Pendente | | [07](class-07/README.md) | Clustering & Descoberta de Estilos de Escrita
+| K-Means, Hierárquico | Agrupamento não-supervisionado de estilos | UCI / Sintético | 🔜 Pendente | |
+[08](class-08/README.md) | Redução de Dimensionalidade & Visualização | PCA, t-SNE | Visualização do espaço de features
+| sklearn `digits` | 🔜 Pendente | | [09](class-09/README.md) | Avaliação de Modelos & Validação | Cross-validation,
+testes estatísticos | Avaliação rigorosa e comparação de modelos | Todos | 🔜 Pendente |
 
 ______________________________________________________________________
 
@@ -270,10 +273,9 @@ ______________________________________________________________________
 
 Este repositório usa dois agentes de IA para suporte ao curso:
 
-| Agente | Propósito | Quando chamar |
-|---|---|---|
-| **magus** | Tire dúvidas sobre conceitos, algoritmos, resultados e ML em geral | "O que é overfitting?", "Por que o SVM funciona melhor com dados normalizados?" |
-| **lucca** | Geração de notebooks, exercícios e material didático | "Gerar Aula 02: Árvores de Decisão" |
+| Agente | Propósito | Quando chamar | |---|---|---| | **magus** | Tire dúvidas sobre conceitos, algoritmos, resultados
+e ML em geral | "O que é overfitting?", "Por que o SVM funciona melhor com dados normalizados?" | | **lucca** | Geração
+de notebooks, exercícios e material didático | "Gerar Aula 02: Árvores de Decisão" |
 
 ______________________________________________________________________
 

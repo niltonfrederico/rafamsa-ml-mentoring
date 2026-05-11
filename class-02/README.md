@@ -22,16 +22,18 @@ ______________________________________________________________________
 
 ## Algoritmo: Decision Tree
 
-A [Árvore de Decisão](../GLOSSARY.md#árvore-de-decisão-decision-tree) aprende regras de divisão do tipo "se feature X > valor, então vai para esquerda" — exatamente como um
-fluxograma de decisão. Cada nó divide os dados em grupos mais homogêneos, usando o [índice Gini](../GLOSSARY.md#índice-gini-gini-index) como critério de divisão.
+A [Árvore de Decisão](../GLOSSARY.md#%C3%A1rvore-de-decis%C3%A3o-decision-tree) aprende regras de divisão do tipo "se
+feature X > valor, então vai para esquerda" — exatamente como um fluxograma de decisão. Cada nó divide os dados em
+grupos mais homogêneos, usando o [índice Gini](../GLOSSARY.md#%C3%ADndice-gini-gini-index) como critério de divisão.
 
 **Intuição para escrita:** é como um perito grafista aplicando regras observáveis: "se a proporção altura/largura é alta
 E o número de pixels no quadrante superior esquerdo é baixo, então provavelmente é a letra 'i'".
 
 **Parâmetros chave:**
 
-- `max_depth`: profundidade máxima — controla complexidade e risco de [overfitting](../GLOSSARY.md#overfitting-sobreajuste)
-- `criterion`: métrica de impureza ([índice Gini](../GLOSSARY.md#índice-gini-gini-index) ou `entropy`)
+- `max_depth`: profundidade máxima — controla complexidade e risco de
+  [overfitting](../GLOSSARY.md#overfitting-sobreajuste)
+- `criterion`: métrica de impureza ([índice Gini](../GLOSSARY.md#%C3%ADndice-gini-gini-index) ou `entropy`)
 - `min_samples_split`: mínimo de amostras para dividir um nó
 
 ______________________________________________________________________
@@ -48,10 +50,14 @@ ______________________________________________________________________
 
 ## Conceitos-Chave
 
-- **[Interpretabilidade](../GLOSSARY.md#interpretabilidade-interpretability):** ao contrário do k-NN, a Árvore de Decisão explica *por que* classificou assim
-- **[Importância de features](../GLOSSARY.md#importância-de-features-feature-importance):** quais medidas da escrita são mais discriminativas para identificar letras
-- **[Overfitting](../GLOSSARY.md#overfitting-sobreajuste):** uma árvore muito profunda "memoriza" o treino mas falha no teste
-- **[Bias-variance tradeoff](../GLOSSARY.md#bias-variance-tradeoff):** profundidade baixa = alto bias; profundidade alta = alta variância
+- **[Interpretabilidade](../GLOSSARY.md#interpretabilidade-interpretability):** ao contrário do k-NN, a Árvore de
+  Decisão explica *por que* classificou assim
+- **[Importância de features](../GLOSSARY.md#import%C3%A2ncia-de-features-feature-importance):** quais medidas da
+  escrita são mais discriminativas para identificar letras
+- **[Overfitting](../GLOSSARY.md#overfitting-sobreajuste):** uma árvore muito profunda "memoriza" o treino mas falha no
+  teste
+- **[Bias-variance tradeoff](../GLOSSARY.md#bias-variance-tradeoff):** profundidade baixa = alto bias; profundidade alta
+  = alta variância
 - **Regras de divisão:** cada nó aplica um limiar em uma [feature](../GLOSSARY.md#feature-atributo) para separar classes
 
 ______________________________________________________________________
@@ -75,11 +81,9 @@ ______________________________________________________________________
 
 ## Dependências (Aula 02)
 
-| Pacote | Uso na aula |
-|---|---|
-| `scikit-learn` | `DecisionTreeClassifier`, `train_test_split`, `plot_tree`, métricas |
-| `ucimlrepo` | Download do dataset Letter Recognition |
-| `numpy` | Manipulação de arrays |
-| `matplotlib` | Visualização da árvore, curvas de acurácia |
-| `seaborn` | [Matriz de confusão](../GLOSSARY.md#matriz-de-confusão-confusion-matrix), gráfico de [importância de features](../GLOSSARY.md#importância-de-features-feature-importance) |
-| `pandas` | Exploração do dataset |
+| Pacote | Uso na aula | |---|---| | `scikit-learn` | `DecisionTreeClassifier`, `train_test_split`, `plot_tree`,
+métricas | | `ucimlrepo` | Download do dataset Letter Recognition | | `numpy` | Manipulação de arrays | | `matplotlib` |
+Visualização da árvore, curvas de acurácia | | `seaborn` |
+[Matriz de confusão](../GLOSSARY.md#matriz-de-confus%C3%A3o-confusion-matrix), gráfico de
+[importância de features](../GLOSSARY.md#import%C3%A2ncia-de-features-feature-importance) | | `pandas` | Exploração do
+dataset |
