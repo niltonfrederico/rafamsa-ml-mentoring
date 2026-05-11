@@ -34,6 +34,18 @@ ______________________________________________________________________
   - [Interpretabilidade](#interpretabilidade-interpretability)
   - [Índice Gini](#%C3%ADndice-gini-gini-index)
   - [Nó e Folha](#n%C3%B3-e-folha-node-and-leaf)
+- [Aula 03 — Regressão Linear & Métricas de Escrita](#aula-03--regress%C3%A3o-linear--m%C3%A9tricas-de-escrita)
+  - [Coeficiente](#coeficiente-coefficient)
+  - [Correlação de Pearson](#correla%C3%A7%C3%A3o-de-pearson-pearson-correlation)
+  - [Engenharia de Feature](#engenharia-de-feature-feature-engineering)
+  - [Intercepto](#intercepto-intercept)
+  - [MAE](#mae-mean-absolute-error)
+  - [Multicolinearidade](#multicolinearidade-multicollinearity)
+  - [R² (coeficiente de determinação)](#r%C2%B2-coeficiente-de-determina%C3%A7%C3%A3o)
+  - [Regressão](#regress%C3%A3o-regression)
+  - [Regressão Linear](#regress%C3%A3o-linear-linear-regression)
+  - [Resíduos](#res%C3%ADduos-residuals)
+  - [RMSE](#rmse-root-mean-squared-error)
 
 ______________________________________________________________________
 
@@ -423,4 +435,227 @@ divisão, o valor do Gini/Entropia, o número de amostras e a classe majoritári
 
 ______________________________________________________________________
 
-*Glossário atualizado na Aula 02. Novos termos serão adicionados a cada aula.*
+______________________________________________________________________
+
+## Aula 03 — Regressão Linear & Métricas de Escrita
+
+______________________________________________________________________
+
+### Coeficiente *(Coefficient)*
+
+**Definição:** Em [Regressão Linear](#regress%C3%A3o-linear-linear-regression), cada feature recebe um coeficiente — um
+número que indica *quanto* o valor previsto muda quando aquela feature aumenta em uma unidade, mantendo as outras
+features constantes.
+
+**Forma do modelo:**
+
+$$\\hat{y} = \\beta_0 + \\beta_1 x_1 + \\beta_2 x_2 + \\dots + \\beta_n x_n$$
+
+onde $\\beta_0$ é o [intercepto](#intercepto-intercept) e $\\beta_1, \\dots, \\beta_n$ são os coeficientes das features.
+
+**Interpretação:** o sinal indica direção (positivo = aumenta o target; negativo = diminui), a magnitude indica força.
+**Atenção:** comparar magnitudes só faz sentido se as features estiverem na mesma escala — uma feature em mm e outra em
+km terá coeficientes incomparáveis em valor absoluto.
+
+**Limitação:** quando há [multicolinearidade](#multicolinearidade-multicollinearity), os coeficientes individuais ficam
+instáveis e perdem interpretabilidade.
+
+______________________________________________________________________
+
+### Correlação de Pearson *(Pearson Correlation)*
+
+**Definição:** Mede a força e direção da relação **linear** entre duas variáveis contínuas. Varia de -1 a +1.
+
+**Fórmula:**
+
+$$r = \\frac{\\sum (x_i - \\bar{x})(y_i - \\bar{y})}{\\sqrt{\\sum (x_i - \\bar{x})^2 \\sum (y_i - \\bar{y})^2}}$$
+
+**Interpretação:**
+
+- $r = +1$ → relação linear positiva perfeita
+- $r = -1$ → relação linear negativa perfeita
+- $r = 0$ → nenhuma relação **linear** (pode existir relação não-linear)
+
+**Cuidado:** Pearson só captura relações lineares. Duas variáveis com relação $y = x^2$ podem ter correlação Pearson
+zero apesar de a relação ser determinística. Para relações monotônicas não-lineares, usar **correlação de Spearman**.
+
+**Significância estatística:** o p-valor associado indica a probabilidade de obter essa correlação por acaso. p < 0.05 é
+o limiar convencional para afirmar significância.
+
+______________________________________________________________________
+
+### Engenharia de Feature *(Feature Engineering)*
+
+**Definição:** Processo de criar, transformar ou combinar features para tornar os padrões dos dados mais aprendíveis
+pelo modelo.
+
+**Exemplos comuns:**
+
+- **Transformação:** `abs(x)`, `log(x)`, `x²` — para capturar relações não-lineares com modelos lineares.
+- **Combinação:** razões entre features (`altura / largura`), diferenças, produtos.
+- **Codificação:** transformar categóricas em numéricas (one-hot encoding).
+- **Agregação:** estatísticas por grupo (média de pressão por escritor).
+
+**Princípio:** o modelo é apenas *uma* peça do pipeline. Frequentemente, a engenharia de feature é onde a maior parte do
+ganho de performance acontece — especialmente em modelos lineares, que dependem totalmente da forma em que as features
+chegam.
+
+**No curso:** Aula 03 demonstra com `abs(stroke_slant)` — transformar a feature em valor absoluto faz o R² subir
+significativamente porque a relação real era $|x|$, não $x$.
+
+______________________________________________________________________
+
+### Intercepto *(Intercept)*
+
+**Definição:** O coeficiente $\\beta_0$ na [Regressão Linear](#regress%C3%A3o-linear-linear-regression) — o valor
+previsto quando todas as features são zero.
+
+**Interpretação prática:** raramente faz sentido literal, porque "todas as features iguais a zero" é geralmente um ponto
+fora do domínio observado dos dados. O intercepto serve para ajustar o nível geral da reta/hiperplano.
+
+**Quando desligar:** o parâmetro `fit_intercept=False` força a reta a passar pela origem. Só usar quando há razão
+teórica forte para isso (ex: relação física conhecida onde `x=0 → y=0`).
+
+______________________________________________________________________
+
+### MAE *(Mean Absolute Error)*
+
+**Definição:** Média dos resíduos em valor absoluto.
+
+**Fórmula:**
+
+$$\\text{MAE} = \\frac{1}{n} \\sum\_{i=1}^{n} |y_i - \\hat{y}\_i|$$
+
+**Interpretação:** erro médio nas mesmas unidades do target. Mais robusto a outliers que
+[RMSE](#rmse-root-mean-squared-error) porque não eleva ao quadrado os resíduos grandes.
+
+**Quando usar:** quando você não quer que outliers dominem a métrica, ou quando o domínio de aplicação trata erros
+proporcionalmente (errar por 10 é duas vezes pior que errar por 5, não quatro vezes).
+
+______________________________________________________________________
+
+### Multicolinearidade *(Multicollinearity)*
+
+**Definição:** Situação em que duas ou mais features de um modelo são fortemente correlacionadas entre si.
+
+**Consequência:**
+
+- A **previsão** do modelo continua boa (R² estável).
+- Os **coeficientes individuais** ficam instáveis — pequenas variações nos dados produzem coeficientes muito diferentes.
+- A interpretação "cada unidade de X reduz Y em β" perde sentido isoladamente, porque não dá para variar X mantendo as
+  outras features constantes (elas variam junto, por construção).
+
+**Detecção rápida:** matriz de correlação. Pares com $|r| > 0.8$ são suspeitos.
+
+**Mitigação:** remover uma das features redundantes, combiná-las em uma única feature, ou usar regularização
+(Ridge/Lasso — Aula 04+).
+
+______________________________________________________________________
+
+### R² *(coeficiente de determinação)*
+
+**Definição:** Métrica de regressão que mede a proporção da variância do target explicada pelo modelo.
+
+**Fórmula:**
+
+$$R^2 = 1 - \\frac{\\sum (y_i - \\hat{y}\_i)^2}{\\sum (y_i - \\bar{y})^2}$$
+
+O numerador é a soma dos quadrados dos resíduos do modelo; o denominador é a soma dos quadrados totais (variância dos
+dados em relação à média).
+
+**Interpretação:**
+
+- $R^2 = 1$ → modelo perfeito.
+- $R^2 = 0$ → modelo equivalente a prever a média constante.
+- $R^2 < 0$ → modelo **pior** que prever a média (acontece em conjuntos de teste com overfitting forte).
+
+**Cuidados:**
+
+- R² **sempre aumenta** ao adicionar features no treino, mesmo features inúteis. Por isso existe o **R² ajustado**, que
+  penaliza a quantidade de features.
+- R² alto não garante que o modelo é "bom" — resíduos com padrão sistemático invalidam a métrica como evidência única.
+
+______________________________________________________________________
+
+### Regressão *(Regression)*
+
+**Definição:** Tarefa de ML que consiste em prever um **valor numérico contínuo** (ao contrário da
+[classificação](#classifica%C3%A7%C3%A3o-classification), que prevê uma categoria).
+
+**Exemplos:** prever velocidade de escrita em cm/s, prever preço de uma casa em reais, prever tempo de execução de uma
+query em milissegundos.
+
+**Métricas primárias:** [R²](#r%C2%B2-coeficiente-de-determina%C3%A7%C3%A3o), [RMSE](#rmse-root-mean-squared-error),
+[MAE](#mae-mean-absolute-error).
+
+**Algoritmos comuns:** [Regressão Linear](#regress%C3%A3o-linear-linear-regression), Random Forest Regressor, Gradient
+Boosting, redes neurais. Vários algoritmos têm versão tanto para classificação quanto para regressão.
+
+______________________________________________________________________
+
+### Regressão Linear *(Linear Regression)*
+
+**Definição:** Algoritmo de [regressão](#regress%C3%A3o-regression) que ajusta uma reta (uma feature) ou hiperplano
+(múltiplas features) que minimiza a soma dos resíduos ao quadrado entre os valores previstos e os reais.
+
+**Forma do modelo:**
+
+$$\\hat{y} = \\beta_0 + \\beta_1 x_1 + \\beta_2 x_2 + \\dots + \\beta_n x_n$$
+
+**Pressupostos:**
+
+- Relação **linear** entre features e target.
+- Resíduos com média zero, variância constante (homocedasticidade) e distribuição aproximadamente normal.
+- Independência entre observações.
+- Pouca [multicolinearidade](#multicolinearidade-multicollinearity) entre features.
+
+**Vantagens:** simples, rápido, totalmente interpretável (cada [coeficiente](#coeficiente-coefficient) tem significado
+direto), pouco propenso a [overfitting](#overfitting-sobreajuste).
+
+**Limitações:** captura apenas relações lineares. Para relações não-lineares, é necessária
+[engenharia de feature](#engenharia-de-feature-feature-engineering) ou um algoritmo não-linear.
+
+**No curso:** usado na Aula 03 para prever velocidade de escrita a partir de pressão e tamanho dos caracteres.
+
+______________________________________________________________________
+
+### Resíduos *(Residuals)*
+
+**Definição:** A diferença entre o valor observado e o valor previsto pelo modelo, para cada amostra:
+
+$$e_i = y_i - \\hat{y}\_i$$
+
+**Para que servem:** os resíduos são a evidência de qualidade do modelo. Em um bom modelo de regressão, os resíduos
+parecem **ruído branco**:
+
+1. Centrados em zero — sem viés sistemático.
+1. Variância constante — sem padrão de funil (heterocedasticidade).
+1. Sem padrão visível quando plotados contra os valores previstos.
+1. Distribuição aproximadamente normal.
+
+**Padrões de alarme:**
+
+- **Curvatura** no plot resíduos × previsão → relação real é não-linear.
+- **Funil** → variância depende do valor previsto; considerar transformação `log(y)`.
+- **Outliers pontuais** → casos suspeitos, investigar individualmente.
+
+______________________________________________________________________
+
+### RMSE *(Root Mean Squared Error)*
+
+**Definição:** Raiz quadrada do erro quadrático médio. Mede o erro médio do modelo nas mesmas unidades do target.
+
+**Fórmula:**
+
+$$\\text{RMSE} = \\sqrt{\\frac{1}{n} \\sum\_{i=1}^{n} (y_i - \\hat{y}\_i)^2}$$
+
+**Por que a raiz?** Sem ela, o **MSE** (Mean Squared Error) está em "unidades ao quadrado" — `(cm/s)²` em vez de `cm/s`
+— e perde interpretabilidade. RMSE traz a métrica de volta para a unidade original.
+
+**Comparação com [MAE](#mae-mean-absolute-error):** RMSE penaliza erros grandes desproporcionalmente (porque eleva ao
+quadrado antes de tirar a raiz). Use RMSE quando erros grandes são especialmente indesejados; use MAE quando todos os
+erros devem pesar proporcionalmente.
+
+______________________________________________________________________
+
+*Glossário atualizado na Aula 03. Novos termos serão adicionados a cada aula.*

@@ -2,9 +2,10 @@
 
 ## Objetivo da Aula
 
-Transição de classificação para regressão: prever valores contínuos (velocidade de escrita) a partir de features de
-escrita (pressão, tamanho dos caracteres). O aluno aprende a diferença entre classificar e regredir, e a interpretar
-métricas de regressão.
+Transição de [classificação](../GLOSSARY.md#classifica%C3%A7%C3%A3o-classification) para
+[regressão](../GLOSSARY.md#regress%C3%A3o-regression): prever valores contínuos (velocidade de escrita) a partir de
+features de escrita (pressão, tamanho dos caracteres). O aluno aprende a diferença entre classificar e regredir, e a
+interpretar métricas de regressão.
 
 ______________________________________________________________________
 
@@ -12,27 +13,31 @@ ______________________________________________________________________
 
 Ao final desta aula, o aluno será capaz de:
 
-- Distinguir classificação de regressão (prever categoria vs. valor contínuo)
-- Aplicar Regressão Linear simples e múltipla
-- Calcular e interpretar R², RMSE e análise de resíduos
-- Realizar análise de correlação entre features de escrita
+- Distinguir [classificação](../GLOSSARY.md#classifica%C3%A7%C3%A3o-classification) de
+  [regressão](../GLOSSARY.md#regress%C3%A3o-regression) (prever categoria vs. valor contínuo)
+- Aplicar [Regressão Linear](../GLOSSARY.md#regress%C3%A3o-linear-linear-regression) simples e múltipla
+- Calcular e interpretar [R²](../GLOSSARY.md#r%C2%B2-coeficiente-de-determina%C3%A7%C3%A3o),
+  [RMSE](../GLOSSARY.md#rmse-root-mean-squared-error) e [análise de resíduos](../GLOSSARY.md#res%C3%ADduos-residuals)
+- Realizar análise de [correlação de Pearson](../GLOSSARY.md#correla%C3%A7%C3%A3o-de-pearson-pearson-correlation) entre
+  [features](../GLOSSARY.md#feature-atributo) de escrita
 - Comparar o poder preditivo de diferentes features
-- Compreender os coeficientes do modelo como pesos das features
+- Compreender os [coeficientes](../GLOSSARY.md#coeficiente-coefficient) do modelo como pesos das features
 
 ______________________________________________________________________
 
 ## Algoritmo: Linear Regression
 
-A Regressão Linear encontra a linha (ou hiperplano, no caso multivariado) que minimiza a soma dos erros quadráticos
-entre os valores previstos e os reais.
+A [Regressão Linear](../GLOSSARY.md#regress%C3%A3o-linear-linear-regression) encontra a linha (ou hiperplano, no caso
+multivariado) que minimiza a soma dos erros quadráticos entre os valores previstos e os reais.
 
 **Intuição para escrita:** a relação entre pressão exercida na caneta e velocidade de escrita tende a ser
 aproximadamente linear — quanto maior a pressão, mais lento o traço. A regressão quantifica essa relação.
 
 **Parâmetros chave:**
 
-- `fit_intercept`: se deve ajustar um intercepto (quase sempre `True`)
-- Sem hiperparâmetros de complexidade — o risco de overfitting é menor que em modelos não-paramétricos
+- `fit_intercept`: se deve ajustar um [intercepto](../GLOSSARY.md#intercepto-intercept) (quase sempre `True`)
+- Sem [hiperparâmetros](../GLOSSARY.md#hiperpar%C3%A2metro-hyperparameter) de complexidade — o risco de
+  [overfitting](../GLOSSARY.md#overfitting-sobreajuste) é menor que em modelos não-paramétricos
 
 ______________________________________________________________________
 
@@ -49,12 +54,16 @@ ______________________________________________________________________
 
 ## Conceitos-Chave
 
-- **Regressão:** previsão de valor contínuo (não uma categoria)
-- **R² (coeficiente de determinação):** proporção da variância do target explicada pelo modelo (0 = nada, 1 = perfeito)
-- **RMSE:** erro médio em unidades do target — mais intuitivo que MSE
-- **Resíduos:** diferença entre valor real e previsto — padrões nos resíduos indicam que o modelo perdeu alguma relação
-- **Correlação de Pearson:** mede a força da relação linear entre duas variáveis
-- **Multicolinearidade:** quando features correlacionadas entre si comprometem a interpretação dos coeficientes
+- **[Regressão](../GLOSSARY.md#regress%C3%A3o-regression):** previsão de valor contínuo (não uma categoria)
+- **[R² (coeficiente de determinação)](../GLOSSARY.md#r%C2%B2-coeficiente-de-determina%C3%A7%C3%A3o):** proporção da
+  variância do target explicada pelo modelo (0 = nada, 1 = perfeito)
+- **[RMSE](../GLOSSARY.md#rmse-root-mean-squared-error):** erro médio em unidades do target — mais intuitivo que MSE
+- **[Resíduos](../GLOSSARY.md#res%C3%ADduos-residuals):** diferença entre valor real e previsto — padrões nos resíduos
+  indicam que o modelo perdeu alguma relação
+- **[Correlação de Pearson](../GLOSSARY.md#correla%C3%A7%C3%A3o-de-pearson-pearson-correlation):** mede a força da
+  relação linear entre duas variáveis
+- **[Multicolinearidade](../GLOSSARY.md#multicolinearidade-multicollinearity):** quando features correlacionadas entre
+  si comprometem a interpretação dos coeficientes
 
 ______________________________________________________________________
 
@@ -77,7 +86,9 @@ ______________________________________________________________________
 
 ## Dependências (Aula 03)
 
-| Pacote | Uso na aula | |---|---| | `scikit-learn` | `LinearRegression`, `train_test_split`, métricas de regressão | |
-`numpy` | Geração de dados sintéticos, operações numéricas | | `matplotlib` | Scatter plots, linha de regressão, gráfico
-de resíduos | | `seaborn` | Heatmap de correlação, pairplot | | `pandas` | DataFrame, estatísticas descritivas | |
-`scipy` | Testes de correlação (`pearsonr`, `spearmanr`) |
+| Pacote | Uso na aula | |---|---| | `scikit-learn` | `LinearRegression`,
+[`train_test_split`](../GLOSSARY.md#train_test_split), métricas de regressão | | `numpy` | Geração de dados sintéticos,
+operações numéricas | | `matplotlib` | Scatter plots, linha de regressão, gráfico de
+[resíduos](../GLOSSARY.md#res%C3%ADduos-residuals) | | `seaborn` | Heatmap de
+[correlação](../GLOSSARY.md#correla%C3%A7%C3%A3o-de-pearson-pearson-correlation), pairplot | | `pandas` | DataFrame,
+estatísticas descritivas | | `scipy` | Testes de correlação (`pearsonr`, `spearmanr`) |
