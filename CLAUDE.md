@@ -1,25 +1,90 @@
 # Content Creation Instructions for ML Classes
 
+## Dois repositórios — não confundir
+
+| Repo | Escopo | | --- | --- | | **Este** (`rafamsa-ml-mentoring`) | Conteúdo de mentoria: aulas, notebooks didáticos,
+milestones, glossário, RESEARCH.md | | [`beedentidade`](https://github.com/Rafamsa/beedentidade) | Projeto de pesquisa
+do Rafael: código da tese, scripts CLI, dataset, **decisões metodológicas em issues** |
+
+Decisões do projeto-tese (escopo, scripts a desenvolver, baselines, métricas) vivem como issues em `beedentidade`. Hoje
+a issue âncora é a [#2 — Project Scope (Milestone 01)](https://github.com/Rafamsa/beedentidade/issues/2), espelho do
+[class-03b-project-kickoff/project-scope.md](class-03b-project-kickoff/project-scope.md).
+
+Quando alguém pedir "código da pesquisa", "script para o Rafael", "dataset", isso é `beedentidade`. Quando pedir "aula",
+"notebook didático", "exercício", "milestone", isso é aqui.
+
+______________________________________________________________________
+
+## Quem é quem
+
+Dois papéis distintos neste projeto — não confundir:
+
+- **Operador / usuário do Claude**: **Nilton Frederico Teixeira** — o **professor / mentor**. É quem interage com o
+  Claude via terminal. Staff Software Engineer, sênior em Python, ML é o que ele está repassando, não a área principal
+  dele. Perfil completo em [.claude/instructions/user.md](.claude/instructions/user.md) (mantido pela skill
+  `evaluate-user`).
+- **Aluno / mentorado / público-alvo do conteúdo**: **Rafael Martins da Silva Afeto** (`MARTINS-AFETO, R.S.`) —
+  mestrando em Ciências Ambientais na UNIFAL/MG, orientado por Marina Wolowski Torres. Tese: *Identificação de abelhas
+  via pistas acústicas com Aprendizado de Máquina*. Background, calibrações pedagógicas e tema da pesquisa estão em
+  [RESEARCH.md](RESEARCH.md) (seção 0 e seguintes).
+
+Regra prática: o Claude **conversa** com o Nilton (operador). O conteúdo gerado é **para** o Rafael (aluno). Toda
+decisão de profundidade/vocabulário deve cruzar os dois perfis — o Nilton precisa conseguir ensinar, o Rafael precisa
+conseguir aprender e aplicar à tese dele.
+
 ## User Profile
 
-Todos os agentes (Magus e Lucca) devem ler [.claude/instructions/user.md](.claude/instructions/user.md) no início de
-toda interação e calibrar profundidade, vocabulário e abordagem pedagógica de acordo. Esse arquivo é mantido pela skill
-`evaluate-user` e acumula conhecimento sobre o usuário ao longo das sessões.
+Todos os agentes (Magus e Lucca) devem ler:
+
+1. [.claude/instructions/user.md](.claude/instructions/user.md) — perfil do operador (Nilton). Mantido pela skill
+   `evaluate-user`.
+1. [RESEARCH.md](RESEARCH.md) — perfil do mentorado (Rafael) na seção 0, + estado da arte de bioacústica de abelhas com
+   ML. Toda aula deve ancorar exemplos no caso de uso real do Rafael sempre que possível.
 
 ______________________________________________________________________
 
 ## Context
 
-Este curso é um programa hands-on de mentoria em machine learning focado em **Reconhecimento de Escrita Manual &
-Identificação de Pessoas** usando scikit-learn. Os alunos têm conhecimento de Python e entendem matemática básica de ML.
-Cada aula tem **1 hora e 30 minutos (90 minutos)**.
+Este curso é um programa hands-on de mentoria em machine learning. O esqueleto curricular vigente usa **Reconhecimento
+de Escrita Manual & Identificação de Pessoas** com scikit-learn como exemplo-âncora pedagógico, mas o **caso de uso
+real** do mentorado é **identificação acústica de espécies de abelha** (ver [RESEARCH.md](RESEARCH.md)). Conexões
+explícitas com bioacústica de abelhas devem aparecer em "Handwriting Connection" / "Bee Audio Connection" sempre que
+fizerem sentido.
 
-O curso roda por **9 aulas**. Toda aula entrega um Jupyter notebook completo e funcional que o aluno consegue rodar
-top-to-bottom sem erros.
+O aluno tem conhecimento de Python básico (vem de R) e entende matemática básica de ML. Cada aula tem **1 hora e 30
+minutos (90 minutos)**.
+
+O curso roda por **9 aulas regulares + milestones** (ver abaixo). Toda aula regular entrega um Jupyter notebook completo
+e funcional que o aluno consegue rodar top-to-bottom sem erros.
 
 ______________________________________________________________________
 
-## Class Structure (90 minutes)
+## Milestones — aulas-ponte para o projeto real
+
+Entre algumas aulas regulares existem **milestones**: sessões cujo objetivo é traduzir o que foi aprendido em progresso
+concreto na pesquisa do Rafael (ID acústica de abelhas — ver [RESEARCH.md](RESEARCH.md)).
+
+**Regras dos milestones**:
+
+- **Sem limite de tempo fixo.** Não seguem a estrutura de 90 minutos das aulas regulares. Duram o que precisarem.
+- **Nome de pasta**: `class-XXb-<slug>/` (sufixo `b` = bridge / milestone, vem depois da aula `XX`).
+- **Conteúdo típico**: checklist de pré-requisitos, documento de escopo da pesquisa, notebook de inspeção/experimentação
+  sobre dados reais do Rafael, e teacher-notes com perguntas-âncora.
+- **Não introduzem algoritmos novos.** Aplicam o que já foi aprendido em dados reais.
+
+**Importante**: o **último milestone do curso não é o projeto-tese completo**. Este curso entrega o **fundamento**
+metodológico e os primeiros experimentos sobre o dataset real. A implementação completa da pesquisa do Rafael acontece
+**em outro repositório**, após o curso, agora que ele terá o ferramental conceitual e prático para tocar sozinho.
+
+Milestones planejados (a confirmar conforme o curso evolui):
+
+- `class-03b-project-kickoff/` — após Regressão Linear. Inventário do dataset, primeira inspeção de áudio real, primeira
+  tentativa de classificação binária.
+- Milestones futuros após classes-chave (provavelmente pós-06 SVM e pós-09 Avaliação) serão decididos no caminho.
+
+______________________________________________________________________
+
+## Class Structure (90 minutes) — apenas para aulas regulares
 
 Toda aula deve seguir esta estrutura exatamente:
 

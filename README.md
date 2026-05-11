@@ -227,20 +227,22 @@ ______________________________________________________________________
 
 ## Currículo — Sumário das Aulas
 
-| # | Tópico | Algoritmo | Aplicação | Dataset | Status | |---|---|---|---|---|---| | [01](class-01/README.md) |
-Introdução ao ML & Reconhecimento de Dígitos | k-Nearest Neighbors | Classificação de dígitos manuscritos | sklearn
-`digits` | ✅ Concluída | | [02](class-02/README.md) | Árvores de Decisão & Reconhecimento de Letras | Decision Tree |
-Reconhecimento de letras A–Z | UCI Letter Recognition | ✅ Concluída | | [03](class-03/README.md) | Regressão Linear &
-Métricas de Escrita | Linear Regression | Previsão de velocidade de escrita | Sintético | 🔜 Pendente | |
-[04](class-04/README.md) | Regressão Logística & Classificação de Escritores | Logistic Regression | Classificação
-binária de escritores | Sintético | 🔜 Pendente | | [05](class-05/README.md) | Métodos Ensemble & Identificação
-Multi-Escritor | Random Forest | Identificação multi-classe de escritores | UCI / Sintético | 🔜 Pendente | |
-[06](class-06/README.md) | Support Vector Machines & Identificação Avançada | SVM (kernels) | Identificação com padrões
-não-lineares | UCI / Sintético | 🔜 Pendente | | [07](class-07/README.md) | Clustering & Descoberta de Estilos de Escrita
-| K-Means, Hierárquico | Agrupamento não-supervisionado de estilos | UCI / Sintético | 🔜 Pendente | |
-[08](class-08/README.md) | Redução de Dimensionalidade & Visualização | PCA, t-SNE | Visualização do espaço de features
-| sklearn `digits` | 🔜 Pendente | | [09](class-09/README.md) | Avaliação de Modelos & Validação | Cross-validation,
-testes estatísticos | Avaliação rigorosa e comparação de modelos | Todos | 🔜 Pendente |
+| # | Tópico | Algoritmo | Aplicação | Dataset | Status | | --- | --- | --- | --- | --- | --- | |
+[01](class-01/README.md) | Introdução ao ML & Reconhecimento de Dígitos | k-Nearest Neighbors | Classificação de dígitos
+manuscritos | sklearn `digits` | ✅ Concluída | | [02](class-02/README.md) | Árvores de Decisão & Reconhecimento de
+Letras | Decision Tree | Reconhecimento de letras A–Z | UCI Letter Recognition | ✅ Concluída | |
+[03](class-03/README.md) | Regressão Linear & Métricas de Escrita | Linear Regression | Previsão de velocidade de
+escrita | Sintético | 🔜 Próxima | | [03b](class-03b-project-kickoff/README.md) | **Milestone — Kickoff do Projeto de
+Pesquisa** | — | Inventário do dataset + primeira inspeção de áudio real + classificação binária | Áudio coletado pelo
+Rafael (USP-RP + Alfenas) | 🔜 Pendente | | [04](class-04/README.md) | Regressão Logística & Classificação de Escritores
+| Logistic Regression | Classificação binária de escritores | Sintético | 🔜 Pendente | | [05](class-05/README.md) |
+Métodos Ensemble & Identificação Multi-Escritor | Random Forest | Identificação multi-classe de escritores | UCI /
+Sintético | 🔜 Pendente | | [06](class-06/README.md) | Support Vector Machines & Identificação Avançada | SVM (kernels) |
+Identificação com padrões não-lineares | UCI / Sintético | 🔜 Pendente | | [07](class-07/README.md) | Clustering &
+Descoberta de Estilos de Escrita | K-Means, Hierárquico | Agrupamento não-supervisionado de estilos | UCI / Sintético |
+🔜 Pendente | | [08](class-08/README.md) | Redução de Dimensionalidade & Visualização | PCA, t-SNE | Visualização do
+espaço de features | sklearn `digits` | 🔜 Pendente | | [09](class-09/README.md) | Avaliação de Modelos & Validação |
+Cross-validation, testes estatísticos | Avaliação rigorosa e comparação de modelos | Todos | 🔜 Pendente |
 
 ______________________________________________________________________
 

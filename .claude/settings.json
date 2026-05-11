@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:pmc.ncbi.nlm.nih.gov)",
+      "WebFetch(domain:journals.plos.org)",
+      "WebFetch(domain:repositorio.ufu.br)",
+      "WebFetch(domain:academic.oup.com)",
+      "WebFetch(domain:sol.sbc.org.br)"
+    ]
+  }
+}
