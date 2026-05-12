@@ -21,8 +21,7 @@ Dois papéis distintos neste projeto — não confundir:
 
 - **Operador / usuário do Claude**: **Nilton Frederico Teixeira** — o **professor / mentor**. É quem interage com o
   Claude via terminal. Staff Software Engineer, sênior em Python, ML é o que ele está repassando, não a área principal
-  dele. Perfil completo em [.claude/instructions/user.md](.claude/instructions/user.md) (mantido pela skill
-  `evaluate-user`).
+  dele.
 - **Aluno / mentorado / público-alvo do conteúdo**: **Rafael Martins da Silva Afeto** (`MARTINS-AFETO, R.S.`) —
   mestrando em Ciências Ambientais na UNIFAL/MG, orientado por Marina Wolowski Torres. Tese: *Identificação de abelhas
   via pistas acústicas com Aprendizado de Máquina*. Background, calibrações pedagógicas e tema da pesquisa estão em
@@ -34,12 +33,9 @@ conseguir aprender e aplicar à tese dele.
 
 ## User Profile
 
-Todos os agentes (Magus e Lucca) devem ler:
-
-1. [.claude/instructions/user.md](.claude/instructions/user.md) — perfil do operador (Nilton). Mantido pela skill
-   `evaluate-user`.
-1. [RESEARCH.md](RESEARCH.md) — perfil do mentorado (Rafael) na seção 0, + estado da arte de bioacústica de abelhas com
-   ML. Toda aula deve ancorar exemplos no caso de uso real do Rafael sempre que possível.
+Todos os agentes (magus e lucca) devem ler [RESEARCH.md](RESEARCH.md) — perfil do mentorado (Rafael) na seção 0, +
+estado da arte de bioacústica de abelhas com ML. Toda aula deve ancorar exemplos no caso de uso real do Rafael sempre
+que possível.
 
 ______________________________________________________________________
 
@@ -331,16 +327,11 @@ ______________________________________________________________________
 
 ## Agents
 
-- **Lucca** ([.claude/agents/lucca.md](.claude/agents/lucca.md)) — criação de conteúdo (notebooks, exercícios,
+- **lucca** ([.claude/agents/lucca.md](.claude/agents/lucca.md)) — criação de conteúdo (notebooks, exercícios,
   teacher-notes)
-- **Magus** ([.claude/agents/magus.md](.claude/agents/magus.md)) — respostas a dúvidas conceituais
+- **magus** ([.claude/agents/magus.md](.claude/agents/magus.md)) — respostas a dúvidas conceituais
 
-## Skills
+## Commands
 
-### evaluate-user
-
-**Path:** [.claude/skills/evaluate-user/SKILL.md](.claude/skills/evaluate-user/SKILL.md)
-
-Invocada **obrigatoriamente ao final de toda resposta** pelos agentes Magus e Lucca. Analisa a interação atual e
-atualiza [.claude/instructions/user.md](.claude/instructions/user.md). Ler o `SKILL.md` para instruções completas de
-execução.
+- **`/ask <pergunta>`** ([.claude/commands/ask.md](.claude/commands/ask.md)) — atalho que invoca o agente `magus` com a
+  pergunta passada como argumento.
