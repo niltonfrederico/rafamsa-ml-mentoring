@@ -51,23 +51,29 @@ As espécies-alvo da tese vivem em **duas regiões principais**:
 1. **Ribeirão Preto / SP** — Meliponário e Apiário da **USP/FFCLRP** (Faculdade de Filosofia, Ciências e Letras de
    Ribeirão Preto). Coleção viva de meliponíneos majoritariamente. Bioma: Cerrado (transição).
 
-**Status**: parceria com a USP-RP **já estabelecida**, **coletas iniciais realizadas em Ribeirão Preto**. Gravações de
-MG foram descartadas e serão recapturadas — por ora, **trabalhar apenas com o dataset USP-RP**.
+**Status**: parceria com a USP-RP **já estabelecida**, coletas realizadas. Coletas em **Alfenas/MG validadas** após
+inspeção de áudio — 5 espécies confirmadas (ver §0.5.2 abaixo). **Overlap intencional** entre os dois sites em 3
+espécies, abrindo espaço para análise de variação geográfica intra-específica.
 
 **Implicação metodológica**:
 
-- O dataset *inicial* tem viés geográfico ainda mais estreito que o esperado: **apenas Ribeirão Preto (Cerrado)**,
-  enquanto MG vem em segunda leva. Não generalizar prematuramente.
+- Dataset cobre **dois biomas / dois sites**: Cerrado (Ribeirão Preto) e Mata Atlântica + transição (Alfenas). Menos
+  estreito do que a leva inicial sugeria, mas ainda SE-restrito — não generalizar para Amazônia/Caatinga.
 - A USP/Ribeirão tem um dos meliponários mais antigos e bem documentados do país (linhagem Lucas Garófalo / Vera
   Imperatriz-Fonseca historicamente).
-- "Espécies brasileiras" no contexto desta tese significa, na prática, **espécies do SE/Cerrado** — focar a literatura e
-  os exemplos nessas. Estudos amazônicos (ex.: Yasuní, Ecuador) servem como contraste, não como baseline.
+- "Espécies brasileiras" no contexto desta tese significa, na prática, **espécies do SE (Cerrado + Mata Atlântica)** —
+  focar a literatura e os exemplos nessas. Estudos amazônicos (ex.: Yasuní, Ecuador) servem como contraste, não como
+  baseline.
+- O overlap de 3 espécies entre Alfenas e USP-RP permite, em princípio, testar se a assinatura acústica de uma mesma
+  espécie é estável entre sites — análise paralela à classificação inter-específica.
 
 ______________________________________________________________________
 
-## 0.5 Dataset em mãos (USP-RP, leva inicial)
+## 0.5 Dataset em mãos
 
-### Espécies gravadas
+### 0.5.1 USP-RP (leva inicial)
+
+#### Espécies gravadas
 
 | Nome popular | Nome científico | Sexo | Captura | Aculeação | | --- | --- | --- | --- | --- | | Abelha europeia |
 *Apis mellifera* | fêmea | microfone externo (shotgun) | com ferrão | | Borá | *Tetragona clavipes* | fêmea | microfone
@@ -80,7 +86,7 @@ depilis* | fêmea | gravador (direto) | sem ferrão | | Abelha-canudo | *Scaptot
 
 **Total**: 8 espécies (7 meliponíneos + 1 *Apis*) + 1 variante de sexo (*S. depilis* macho).
 
-### Observações taxonômicas e metodológicas
+#### Observações taxonômicas e metodológicas
 
 - *Apis mellifera* é a **única com ferrão** no pool — o resto é Meliponini. Útil pra discussões iniciais (pertence a
   tribo diferente; é um "outgroup" acústico potencialmente mais fácil de separar).
@@ -91,7 +97,7 @@ depilis* | fêmea | gravador (direto) | sem ferrão | | Abelha-canudo | *Scaptot
   potencial** — *A. mellifera* e *T. clavipes* foram gravados de forma diferente do resto. Decisão pra Bloco C do
   milestone: tratar protocolo como feature, fazer balanceamento, ou re-gravar?
 
-### Hardware
+#### Hardware
 
 - **Gravador**: **Zoom H4n Handy Recorder** (portátil). Mesmo modelo usado por Ferreira et al. 2023 no Chile — ⭐
   **excelente compatibilidade com a literatura**.
@@ -99,7 +105,7 @@ depilis* | fêmea | gravador (direto) | sem ferrão | | Abelha-canudo | *Scaptot
 - Especificações do H4n nativas: até 24-bit / 96 kHz, 2 canais cardioides + 2 entradas XLR/TRS. Tipicamente gravações de
   campo saem em **WAV 16-bit / 44,1 ou 48 kHz**.
 
-### Volume e densidade
+#### Volume e densidade
 
 - **~30 min de gravação crua por espécie** (média). Para 9 classes ≈ **270 min ≈ 4,5h** brutas.
 
@@ -114,10 +120,40 @@ depilis* | fêmea | gravador (direto) | sem ferrão | | Abelha-canudo | *Scaptot
   2023 (3.595 segmentos, 16 espécies, "grande" pra área) e **>10× maior** que Ribeiro 2021 (321 segmentos, 15 espécies).
   Dataset é **competitivo** em volume, embora menor em diversidade de espécies.
 
-### Pendências
+### 0.5.2 Alfenas/MG (validada após inspeção de áudio)
 
-- Gravações de **Alfenas/MG serão refeitas** — atualizar este bloco quando vierem.
-- Modelo exato do microfone shotgun ainda a confirmar.
+#### Espécies confirmadas
+
+| Nome popular | Nome científico | Também em USP-RP? | | --- | --- | --- | | Tubuna | *Scaptotrigona bipunctata* | sim |
+| — | *Scaptotrigona postica* | não | | Borá | *Tetragona clavipes* | sim | | Jataí | *Tetragonisca angustula* | sim | |
+Uruçu-amarela | *Melipona rufiventris* (a confirmar) | não |
+
+**Total**: 5 espécies, todas Meliponini. **3 em overlap** com USP-RP (*S. bipunctata*, *T. clavipes*, *T. angustula*),
+**2 exclusivas** de Alfenas (*S. postica*, Uruçu-amarela).
+
+#### Observações
+
+- Nome científico exato de **Uruçu-amarela** ainda a confirmar — tipicamente *Melipona rufiventris*, mas pode ser *M.
+  mondury* dependendo da fonte/região. Marcar como pendência taxonômica até bater com a Marina.
+- *S. bipunctata* e *S. postica* coexistirem no mesmo dataset abre sub-pergunta natural: a assinatura acústica
+  intra-gênero (Scaptotrigona) é separável? — análise interessante para a tese.
+- Overlap de 3 espécies com USP-RP é **intencional** e habilita estudo de variação geográfica intra-específica (mesma
+  espécie, dois biomas: Cerrado vs Mata Atlântica/transição).
+
+#### Hardware
+
+- **Gravador**: mesmo Zoom H4n Handy Recorder usado em USP-RP. ✓ compatível com a literatura (Ferreira 2023).
+- **Sem microfone shotgun externo** em Alfenas — todas as capturas foram **gravador direto** (cardioides nativos do
+  H4n).
+- **Implicação**: o eixo "protocolo de captura" fica mais limpo no dataset combinado — só *A. mellifera* e *T. clavipes*
+  (USP-RP) usaram shotgun externo; todo o resto, incluindo as 5 espécies de Alfenas, é gravador direto. Isso simplifica
+  o balanceamento mas mantém a confusão potencial nas duas espécies originais com shotgun.
+
+### 0.5.3 Pendências
+
+- Volume/densidade efetivos do dataset de Alfenas — atualizar quando contagem de minutos brutos estiver feita.
+- Confirmar nome científico da Uruçu-amarela (*M. rufiventris* vs *M. mondury*).
+- Modelo exato do microfone shotgun (USP-RP) ainda a confirmar.
 - Sample rate e bit depth efetivos a confirmar inspecionando os arquivos (Bloco A do milestone).
 - Rotulagem atual: separação por arquivo/pasta por espécie (a confirmar formato exato).
 
