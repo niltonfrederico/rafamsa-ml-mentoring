@@ -11,3 +11,5 @@ repos:
     hooks:
       - id: mdformat
         args: [--wrap, "120"]
+        additional_dependencies:
+          - mdformat-frontmatter
